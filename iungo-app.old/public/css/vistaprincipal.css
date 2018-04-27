@@ -1,0 +1,381 @@
+* {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+}
+*::-moz-selection {
+  background: #aeaeae;
+}
+*::selection {
+  background: #aeaeae;
+}
+html,
+body {
+  height: 100%;
+}
+/* utils */
+.text.small {
+  font-size: 0.8em;
+}
+.text.center {
+  text-align: center;
+}
+.text.right {
+  text-align: right;
+}
+.text.left {
+  text-align: left;
+}
+.text.muted {
+  color: #777;
+}
+.parallax {
+  background-image: url("http://fullhdpictures.com/wp-content/uploads/2015/11/Chicago-Wallpapers.jpg");
+}
+.parallax .nav {
+  position: absolute;
+  z-index: 999;
+  padding: 20px 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.parallax .nav:before {
+  position: absolute;
+  content: "";
+  top: -3px;
+  left: -10px;
+  right: -10px;
+  width: 150%;
+  box-shadow: 0 10px 60px 20px rgba(0,0,0,0.5);
+}
+.parallax .nav ul {
+  margin: 0;
+  list-style: none;
+}
+.parallax .nav ul li {
+  margin: 0 20px;
+  display: inline-block;
+}
+.parallax .nav ul li.active a {
+  border-bottom-color: rgba(255,255,255,0.5);
+}
+.parallax .nav ul li a {
+  text-align: center;
+  padding: 10px 0;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.parallax .nav ul li a:hover {
+  border-bottom-color: rgba(255,255,255,0.3);
+}
+.parallax h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 7em;
+  margin: 0;
+  opacity: 0.9;
+}
+.parallax h3 {
+  font-weight: lighter;
+  margin: 0;
+  font-size: 1.5em;
+  opacity: 0.8;
+}
+.parallax .go.down {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 23%;
+}
+.parallax .go.down:hover {
+  cursor: pointer;
+}
+.parallax .go.down:hover .arrow {
+  border-top-color: #fff;
+}
+.parallax .go.down .arrow {
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  margin: auto;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top-color: rgba(255,255,255,0.4);
+}
+.page {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+  display: table;
+}
+.page .inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.page p {
+  font-size: 18px;
+}
+.page strong {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 1.15em;
+  border-bottom: 1.3em;
+}
+.page a {
+  text-decoration: none;
+  color: #d3d3d3;
+  border-bottom: 1px dotted #d3d3d3;
+}
+.page a:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+.page.with.background {
+  background-size: cover;
+  background-color: #111;
+}
+.page.with.background.fixed {
+  background-attachment: fixed;
+}
+.page.with.background.white {
+  background-color: #fff;
+}
+.page.with.background.white .inner {
+  color: inherit;
+  background-color: transparent;
+}
+.page.with.background .inner {
+  color: rgba(255,255,255,0.9);
+  background-color: rgba(0,0,0,0.6);
+}
+.howtofly {
+  background-image: url("../images/fea.jpg");
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden;
+  box-shadow: 0 10px 100px 5px #000;
+}
+
+
+
+.howtofly .container {
+  padding-top: 100px;
+}
+.howtofly p {
+  color: rgba(62,62,62,0.8);
+}
+.howtofly .inner {
+/*  background-color: rgba(255,255,255,0.9) !important;*/
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+.howtofly .quote {
+  position: absolute;
+  bottom: 40px;
+  color: transparent;
+  color: #aaa;
+  right: 30px;
+}
+.howtofly.ready .quote {
+  opacity: 0;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+.howtofly.seen .quote {
+  opacity: 0.8;
+}
+.about {
+  background-image: url("http://cdn.wonderfulengineering.com/wp-content/uploads/2016/01/Chicago-Wallpaper-13.jpg");
+}
+.about .inner {
+  background: rgba(0,0,0,0.7) !important;
+}
+.about.ready .inner {
+  background: rgba(0,0,0,0.2) !important;
+  -webkit-transition: background 1s ease;
+  transition: background 1s ease;
+}
+.about.focused .inner {
+  background: rgba(0,0,0,0.7) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css';
+@import 'https://fonts.googleapis.com/css?family=Raleway:100,600';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300';
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: #999;
+  background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 20px 0;
+  text-transform: none;
+  color: rgba(254, 82, 76, 1);
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+a:link,
+a:active,
+a:visited{
+  color:rgba(255,255,255,1);
+}
+
+a:hover{
+  color:rgba(255,255,255,0.6);
+}
+
+.gray {
+  color: #a5a5a5;
+}
+
+.team{
+  margin:40px;
+}
+
+.team-member {
+  margin: 15px 0;
+  padding: 0;
+}
+
+.team-member figure {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.team-member figure img {
+  min-width: 100%;
+}
+
+.team-member figcaption p {
+  font-size: 16px;
+}
+
+.team-member figcaption ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.team-member figcaption ul {
+  visibility: visible;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+.team-member figcaption ul li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.team-member h4 {
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.team-member figcaption {
+  padding: 50px;
+  color: transparent;
+  background-color: transparent;
+  position: absolute;
+  z-index: 996;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.team-member figure:hover figcaption {
+  visibility: visible;
+  color: #fff;
+  background: rgba(230, 78, 62, 0.9);
+  /* Primary color, can be changed via colors.css */
+  
+  height: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.team-member figure:hover figcaption ul li a:hover {
+  color: rgba(49, 49, 49, .97);
+}
+
+.team-member figure img {
+  -webkit-transform: scale(1) rotate(0) translateY(0);
+  -moz-transform: scale(1) rotate(0) translateY(0);
+  -o-transform: scale(1) rotate(0) translateY(0);
+  -ms-transform: scale(1) rotate(0) translateY(0);
+  transform: scale(1) rotate(0) translateY(0);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.team-member figure:hover img {
+  -webkit-transform: scale(1.1) rotate(1deg) translateY(12px);
+  -moz-transform: scale(1.1) rotate(1deg) translateY(12px);
+  -o-transform: scale(1.1) rotate(1deg) translateY(12px);
+  -ms-transform: scale(1.1) rotate(1deg) translateY(12px);
+  transform: scale(1.1) rotate(1deg) translateY(12px);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}

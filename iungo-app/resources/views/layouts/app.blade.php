@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -12,24 +11,18 @@
 
         <!-- Styles -->
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800' rel='stylesheet' type='text/css'>
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
-
-
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
         <link href="{{ asset('css/vistaprincipal.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/firstpage.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">      
 
     </head>
-    <body>
+    <body style="background-color: #ef9797">
         <div id="app">
             <nav class="navbar navbar-default navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
-
                         <!-- Collapsed Hamburger -->
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                             <span class="sr-only">Toggle Navigation</span>
@@ -37,14 +30,11 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
                             Iungo
-                            <!--{{ config('app.name', 'Iungo') }}-->
                         </a>
                     </div>
-
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
                         <!-- Left Side Of Navbar -->
                         <ul class="nav navbar-nav">
@@ -82,18 +72,19 @@
                     </div>
                 </div>
             </nav>
-
             @yield('content')
         </div>
 
         <!-- Scripts -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js'></script>
-
+       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js'></script>
+        
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/vistaprincipal.js') }}"></script>
-        <script src="{{ asset('js/firstpage.js') }}"></script>
         <script src="https://use.fontawesome.com/242f61bc37.js"></script>
+
 
     </body>
 </html>

@@ -1,87 +1,69 @@
-/*
-* http://christianheilmann.com/2015/09/06/tinderesque-building-a-tinder-like-interface-with-css-animations-and-vanilla-js-justcode/?utm_source=CSS-Weekly&utm_campaign=Issue-180&utm_medium=email
-*/
+$(document).ready(function(){
+  var foto = 0;
 
-(function(){
-  var animating = false;
+  var imgs = ["./images/chica.jpg","./images/chico.jpg","./images/fea.jpg","./images/ivan.jpeg", "./images/jordi.jpg"];
 
-  function animatecard(ev) {
-    if (animating === false) {
-      var t = ev.target;
-      if (t.className === 'but-nope') {
-        t.parentNode.classList.add('nope');
-        animating = true;
-        fireCustomEvent('nopecard',
-          {
-            origin: t,
-            container: t.parentNode,
-            card: t.parentNode.querySelector('.card')
-          }
-        );
-      }
-      if (t.className === 'but-yay') {
-        t.parentNode.classList.add('yes');
-        animating = true;
-        fireCustomEvent('yepcard',
-          {
-            origin: t,
-            container: t.parentNode,
-            card: t.parentNode.querySelector('.card')
-          }
-        );
-      }
-      if (t.classList.contains('current')) {
-        fireCustomEvent('cardchosen',
-          {
-            container: getContainer(t),
-            card: t
-          }
-        );
-      }
+  $(".botomg").click(cor);
+  $("body").keydown(function(e) {
+    if(e.keyCode == 37) {
+      dis();
+    }
+    else if(e.keyCode == 39) {
+      cor();
+    }
+  });
+
+
+
+  function cor() {
+    console.log('hola');
+    $(".fotoperfil img, .nompersona").animate({"left": "+=600%"}, 600 );               
+    $(".fotoperfil img, .nompersona").animate({ "left": "-=600%"}, 0 );
+    $(".fotoperfil img").attr("src", imgs[foto]);
+    foto++;
+    if (foto == imgs.length) {
+      foto = 0;
     }
   }
 
-  function fireCustomEvent(name, payload) {
-    var newevent = new CustomEvent(name, {
-      detail: payload
-    });
-    document.body.dispatchEvent(newevent);
+  $(".botodis").click(dis);
+
+  function dis() {
+    $(".fotoperfil img, .nompersona").animate({"left": "-=600%"}, 600 );               
+    $(".fotoperfil img, .nompersona").animate({ "left": "+=600%" }, 0 );
+    $(".fotoperfil img").attr("src", imgs[foto]);
+    foto++;
+    if (foto == imgs.length) {
+      foto = 0;
+    }
   }
 
-  function getContainer(elm) {
-    var origin = elm.parentNode;
-    if (!origin.classList.contains('cardcontainer')){
-      origin = origin.parentNode;
-    }
-    return origin;
+  $(".botoin").click(inf);
+
+  function inf() {
+  	
   }
 
-  function animationdone(ev) {
-    animating = false;
-    var origin = getContainer(ev.target);
-    if (ev.animationName === 'yay') {
-      origin.classList.remove('yes');
-    }
-    if (ev.animationName === 'nope') {
-      origin.classList.remove('nope');
-    }
-    if (origin.classList.contains('list')) {
-      if (ev.animationName === 'nope' ||
-          ev.animationName === 'yay') {
-        origin.querySelector('.current').remove();
-        if (!origin.querySelector('.card')) {
-          fireCustomEvent('deckempty', {
-            origin: origin.querySelector('button'),
-            container: origin,
-            card: null
-          });
-        } else {
-          origin.querySelector('.card').classList.add('current');
-        }
-      }
+  $(".botomg").hover(function(){
+    $(this).find('i').attr('class', 'fas fa-heart');
+  }, function(){
+    $(this).find('i').attr('class', 'far fa-heart');
+  });
+  $(".botodis").hover(function(){
+    $(this).find('i').attr('class', 'fas fa-times-circle');
+  }, function(){
+    $(this).find('i').attr('class', 'far fa-times-circle');
+  });
+  $(".botoin").hover(function(){
+    $(this).find('i').attr('class', 'fas fa-question-circle');
+  }, function(){
+    $(this).find('i').attr('class', 'far fa-question-circle');
+  }); 
+
+  function sleep(miliseconds) {
+    var currentTime = new Date().getTime();
+
+    while (currentTime + miliseconds >= new Date().getTime()) {
     }
   }
-  document.body.addEventListener('animationend', animationdone);
-  document.body.addEventListener('webkitAnimationEnd', animationdone);
-  document.body.addEventListener('click', animatecard);
-})();
+});

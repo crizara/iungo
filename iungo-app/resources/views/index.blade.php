@@ -1,85 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" >
-
     <head>
         <meta charset="UTF-8">
         <title>Iungo Home Page</title>
-
-
-
         <link rel="stylesheet" href="css/vistaprincipal.css">
-
-
     </head>
-
     <body>
-
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
-
-
-
         <script src="https://use.fontawesome.com/242f61bc37.js"></script>
     </head>
-
 <body>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800' rel='stylesheet' type='text/css'>
-
-
-    <section class="page parallax with background fixed">
+    <section class="page parallax with background fixed background-iungo">
         <nav class="nav">
             <ul>
                 <li class=active><a href="#">¡ DISELO ! </a></li>
                 <li><a href="#" data-page=.page.howtofly>¿ CHATEAMOS ?</a></li>
-                <li><a href="#" data-page=.page.about>Gaming</a></li>
+                <li><a href="#" data-page=.page.about>¡ ENTRA !</a></li>
                 <li> <a href="{{ url('/login') }}" data-page=.page.about>Login</a></li>
-                <li> <a href="{{ url('/register') }}" data-page=.page.about>Registrate</a></li>
-
+                <li> <a href="{{ url('/register') }}" data-page=.page.about>Registrate</a></li> 
             </ul>
         </nav>
-        <div class='inner text center'>
-            <h1>AITT</h1>
-            <h3>Chicago, IL</h3>
-        </div>
+       
         <div class="go down" data-page=.page.howtofly>
             <div class="arrow"></div>
         </div>
     </section>
-
     <section class="page howtofly with white background">
         <div class='inner'>
             <div class='container text right'>
-                <h1> quality assurance.</h1>
-                            <p><strong>A passionate team</strong><br />dedicated to help grow your skills.<br><h1><a href="ourteam.html"><font color="red"><b> Our Team</b></h1></a><br /><br>
-        
+                <h1>Conoce gente nueva.</h1>
+                            <p><strong>Registrate y experimenta</strong><br />Podrás conocer gente interesante.<br><h1><a href="ourteam.html"><font color="red"><b> Our Team</b></h1></a><br /><br>
                             <a class="btn btn-default" href="#" role="button">Link</a>
-        
                             </b></p></font></b></a>
             </div>
         </div>
-
-
-
-        <!--        <div class="inner">&nbsp;</div>
-                <div class='container text right'>
-                    <div style="max-width: 530px">
-                       <h1>A community dedicated to quality assurance.</h1>
-                            <p><strong>A passionate team</strong><br />dedicated to help grow your skills.<br><h1><a href="ourteam.html"><font color="red"><b> Our Team</b></h1></a><br /><br>
-        
-                            <a class="btn btn-default" href="#" role="button">Link</a>
-        
-                            </b></p></font></b></a>
-                    </div>
-                </div>-->
     </section>
 
     <section class="page about with background">
         <div class='inner'>
-            <div class='container text right'>
+            <div class='container text'>
                 <h1>Check us out</h1>
-                <i class="fa fa-twitter-square fa-5x"></i>  <i class="fa fa-facebook-official fa-5x"></i> <i class="fa fa-steam-square fa-5x"></i>
+                <i class="fa fa-twitter-square fa-5x"></i>  
+                <i class="fa fa-instagram fa-5x"></i>
+                <i class="fa fa-facebook-official fa-5x"></i> 
+
 
 
 

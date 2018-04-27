@@ -28,8 +28,12 @@ body {
 .text.muted {
   color: #777;
 }
-.parallax {
-  background-image: url("http://fullhdpictures.com/wp-content/uploads/2015/11/Chicago-Wallpapers.jpg");
+.background-iungo {
+  background-image: url("../images/fondoiungo.jpg");
+  background-color: white !important;
+  background-position: center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat;
 }
 .parallax .nav {
   position: absolute;
@@ -39,6 +43,8 @@ body {
   left: 0;
   right: 0;
   text-align: center;
+  background-color: #ef9797;
+  position: fixed;
 }
 .parallax .nav:before {
   position: absolute;
@@ -47,7 +53,7 @@ body {
   left: -10px;
   right: -10px;
   width: 150%;
-  box-shadow: 0 10px 60px 20px rgba(0,0,0,0.5);
+  /*box-shadow: 0 10px 60px 20px rgba(0,0,0,0.5);*/
 }
 .parallax .nav ul {
   margin: 0;
@@ -143,31 +149,29 @@ body {
 }
 .page.with.background {
   background-size: cover;
-  background-color: #111;
+  background-color: white;
 }
 .page.with.background.fixed {
-  background-attachment: fixed;
+  
 }
 .page.with.background.white {
   background-color: #fff;
 }
 .page.with.background.white .inner {
   color: inherit;
-  background-color: transparent;
+ /* background-color: transparent;*/
 }
 .page.with.background .inner {
-  color: rgba(255,255,255,0.9);
-  background-color: rgba(0,0,0,0.6);
+  color: rgba(62,62,62,0.8);
+  /*background-color: rgba(0,0,0,0.6);*/
 }
 .howtofly {
-  background-image: url("../images/fea.jpg");
-  background-size: auto !important;
+  background-image: url("../images/chica.jpg");
+  background-size: 50% !important;
   background-repeat: no-repeat !important;
   overflow: hidden;
   box-shadow: 0 10px 100px 5px #000;
 }
-
-
 
 .howtofly .container {
   padding-top: 100px;
@@ -201,32 +205,24 @@ body {
   opacity: 0.8;
 }
 .about {
-  background-image: url("http://cdn.wonderfulengineering.com/wp-content/uploads/2016/01/Chicago-Wallpaper-13.jpg");
+  background-image: url("../images/chico.jpg");
+  background-size: 50% !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden;
+  /*box-shadow: 0 10px 100px 5px #000;*/
+  background-position: right;
 }
 .about .inner {
-  background: rgba(0,0,0,0.7) !important;
+/*  background: rgba(0,0,0,0) !important;*/
 }
 .about.ready .inner {
-  background: rgba(0,0,0,0.2) !important;
+ /* background: rgba(0,0,0,0.2) !important;*/
   -webkit-transition: background 1s ease;
   transition: background 1s ease;
 }
 .about.focused .inner {
-  background: rgba(0,0,0,0.7) !important;
+ /* background: rgba(0,0,0,0.7) !important;*/
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css';
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css';
 @import 'https://fonts.googleapis.com/css?family=Raleway:100,600';
@@ -252,7 +248,7 @@ h5,
 h6 {
   margin: 0 0 20px 0;
   text-transform: none;
-  color: rgba(254, 82, 76, 1);
+  color: #e89292;
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
@@ -262,11 +258,11 @@ h6 {
 a:link,
 a:active,
 a:visited{
-  color:rgba(255,255,255,1);
+  color:rgba(62,62,62,0.8);
 }
 
 a:hover{
-  color:rgba(255,255,255,0.6);
+  color:#EF9797 !important;
 }
 
 .gray {
