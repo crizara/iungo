@@ -13,10 +13,7 @@ Pagina de configuracion
     <div class="panel panel-default">
       <div class="panel-heading">Galeria de Imagenes</div>
         <div class="panel-body">
-           <a href="{{ url('userList') }}">Listar Users</a>
-
-
-          <form method="POST" action="{{ url('userList') }}" accept-charset="UTF-8" enctype="multipart/form-data">
+          <form method="POST" action="{{ url('storage') }}" accept-charset="UTF-8" enctype="multipart/form-data">
             
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             

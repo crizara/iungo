@@ -1,115 +1,78 @@
-/* Design of a card */
-.card {
-  font-size: 14px;
-  line-height: 200px;
-  text-align:center;
-  width: 150px;
-  height: 200px;
-  display: block;
-  background: #666;
-  -webkit-transform-origin: 50% 99%;
-  transform-origin: 50% 99%;
-  transition: .4s;
-}
-
-.cardcontainer {
-  padding: 10px;
+.botonsfoto {
   text-align: center;
-  width: 150px;
-  margin: 0 auto;
 }
 
-/* List functionality */
-.list .cardlist {
-  margin: 0;
-  padding: 0;
-}
-.list .card {
-  display: none;
-}
-.list .current {
-  display: block;
-}
-
-/* Button designs */
-
- button  {
-  background: #0c0;
-  border: none;
-  color: #fff;
-  border-radius: 50% 50%;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  margin: 0 .5em;
-  display: inline-block;
-}
- button:focus { 
-  outline: 0;
-  background: #0f0;
-}
-.but-nope {
-  background: #c00;
-}
-.but-nope:focus { 
-  outline: 0;
-  background: #f00;
-}
-
-.cardcontainer.yes .card {
-  -webkit-animation: yay 0.7s ease-out;
-  animation: yay 0.7s ease-out;
-}
-.cardcontainer.nope .card {
-  -webkit-animation: nope 0.7s ease-out;
-  animation: nope 0.7s ease-out;
-}
-
-
-/*
-  Animations, isn't it 'fun' to repeat all of that, just for Safari? :)
-*/
-
-@keyframes yay {
-  from {
-    transform: rotate(0deg);
-    opacity: 1;
+.botomg {
+    color: #ef9797;
+    font-size: 85px;
+    text-align: center;
   }
-  to {
-    transform: rotate(40deg) translateY(-80px);
-    opacity: 0;
+  .botodis {
+    color: #565353;
+    font-size: 85px;
+    text-align: center;
   }
-}
+  .nompersona {
+    background-color: black;
+color: white;
+opacity: 0.7;
+position: absolute;
+z-index: 10;
+left: 15%;
+width: 70%;
+height: 6%;
+font-size: 20px;
+  }
+  .botomg:hover {
+    cursor: pointer;
+  }
+  .botodis:hover {
+    cursor: pointer;
+  }
 
-@-webkit-keyframes yay {
-  from {
-    -webkit-transform: rotate(0deg);
-    opacity: 1;
+  .botoin {
+    color: #77a5d8;
+    font-size: 40px;
+    float: center;    
   }
-  to {
-    -webkit-transform: rotate(40deg) translateY(-80px);
-    opacity: 0;
-  }
-}
 
-@keyframes nope {
-  from {
-    transform: rotate(0deg);
-    opacity: 1;
+  .botoin:hover {
+    cursor: pointer;
   }
-  to {
-    transform: rotate(-40deg) translateY(-80px);
-    opacity: 0;
+  .image-window img{
+    z-index: 9;
+    object-fit: cover;
+    height: 500px;
+    width: 100%;
+    position: relative;
   }
-}
 
-@-webkit-keyframes nope {
-  from {
-    -webkit-transform: rotate(0deg);
-    opacity: 1;
+  .fotoperfil {
+    text-align: center;
+    margin-top: 4%;
+    background-color: white;
+    padding: 2%;   
   }
-  to {
-    -webkit-transform: rotate(-40deg) translateY(-80px);
-    opacity: 0;
+
+  .image-window {
+    cursor: pointer;
+    height: 500px;
+    width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 100%;
+    transition: height 0.3s ease-in-out;
   }
-}
+
+  .row {
+    margin: 0px !important;
+  }
+
+  body {
+    background-color: #ef9797;
+  }
+
+  .botons {
+    background-color: white;
+  }
