@@ -17,11 +17,6 @@
 
     <body>
         <div class="container-fluid" style="padding: 0px;">  
-
-
-
-
-
             <nav class="navbar navbar-fixed-left navbar-minimal animate" role="navigation">
                 <div class="navbar-toggler animate">
                     <span class="menu-icon"></span>
@@ -48,7 +43,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ url('/config') }}" class="animate">
+                        <a href="{{ route('user.perfil') }}" class="animate">
                             <span class="desc animate">Mi perfil </span>
                             <i class="fas fa-user"></i>           
                             </span>
@@ -116,12 +111,6 @@
         </div>
 
 
-        <!-- 
-
-
-        -->
-
-
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -129,6 +118,18 @@
     </div>
   </div>
 </div>
+
+<script>
+    $("#logout-form").on("submit", function(){
+        event.preventDefault();
+        return confirm("Do you want to delete this item?");
+    });
+</script>
+
+
+
+
+
 
 
     </body>

@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Route::get('/formularioconfig', 'ConfigController@index');
 Route::get('/Personas', 'HomeController@listarPersonas');
+Route::get('/userList', 'PersonaController@listarUserPersonas');
 Auth::routes();
 Route::get('/Personas', 'HomeController@listarPersonas');
 Route::get('/', function () {
@@ -32,3 +33,5 @@ Route::get('/config', function () {
 });
 Route::get('formularioconfig', 'ConfigController@index');
 Route::post('storage', 'ConfigController@save');
+Route::get
+('/eliminarUser/{id}', ['as' => 'delete', 'uses' => 'PersonaController@eliminarUser']);

@@ -1,9 +1,10 @@
 $(document).ready(function(){
   var foto = 0;
+  var persones = new Array();
+  getpersona();
 
-  var imgs = ["./images/chica.jpg","./images/chico.jpg","./images/fea.jpg","./images/ivan.jpeg", "./images/jordi.jpg"];
+  var imgs = ["./images/chica.jpg","./images/chico.jpg","./images/fea.jpg","./images/ivan.jpeg", "./images/jordi.jpg"];  
 
-  $(".botomg").click(cor);
   $("body").keydown(function(e) {
     if(e.keyCode == 37) {
       dis();
@@ -13,10 +14,34 @@ $(document).ready(function(){
     }
   });
 
+  $(".botomg").click(cor);
 
+  $(".botodis").click(dis);  
 
-  function cor() {
-    console.log('hola');
+  $(".botoin").click(inf);
+
+  function inf() {
+    getfoto(persones.shift());
+  }
+
+  function getpersona() {    
+
+    $.getJSON( "http://172.16.9.24/iungo/iungo-app/public/persona/getids", function( data ) {
+      $.each( data, function( key, val ) {
+        persones[key] = val.idPersona;        
+      });
+    });
+  }
+
+  function getfoto(id) {
+    $.get( "http://172.16.9.24/iungo/iungo-app/public/persona/fotoperfil",
+     { idpersona: id} ).done(
+     function( data ) {
+      alert( data );
+    });
+   }
+
+   function cor() {    
     $(".fotoperfil img, .nompersona").animate({"left": "+=600%"}, 600 );               
     $(".fotoperfil img, .nompersona").animate({ "left": "-=600%"}, 0 );
     $(".fotoperfil img").attr("src", imgs[foto]);
@@ -26,8 +51,6 @@ $(document).ready(function(){
     }
   }
 
-  $(".botodis").click(dis);
-
   function dis() {
     $(".fotoperfil img, .nompersona").animate({"left": "-=600%"}, 600 );               
     $(".fotoperfil img, .nompersona").animate({ "left": "+=600%" }, 0 );
@@ -36,12 +59,6 @@ $(document).ready(function(){
     if (foto == imgs.length) {
       foto = 0;
     }
-  }
-
-  $(".botoin").click(inf);
-
-  function inf() {
-  	
   }
 
   $(".botomg").hover(function(){
@@ -58,12 +75,6 @@ $(document).ready(function(){
     $(this).find('i').attr('class', 'fas fa-question-circle');
   }, function(){
     $(this).find('i').attr('class', 'far fa-question-circle');
-  }); 
+  });
 
-  function sleep(miliseconds) {
-    var currentTime = new Date().getTime();
-
-    while (currentTime + miliseconds >= new Date().getTime()) {
-    }
-  }
 });
