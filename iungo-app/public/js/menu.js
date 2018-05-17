@@ -15,3 +15,19 @@ $(function () {
 		$(this).closest('.navbar-minimal').toggleClass('open');
 	})
 });
+
+
+
+
+
+
+
+/*Notificaciones*/
+
+
+$(document).ready(function () {
+  $(".notificationicon").click(function () {
+    $(this).toggleClass("open");
+    $("#notificationMenu").toggleClass("open");
+  });
+});

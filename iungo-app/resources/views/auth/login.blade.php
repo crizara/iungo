@@ -42,6 +42,11 @@
             @endif
 
             <input type="submit" value="Conectate">
+            <span class="help-block">
+            <a href="{{ url('/register') }}" data-page=.page.about>Aun no estras registrado? Registrate</a>
+            </span>
+
+
                      <!--   <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">

@@ -1,9 +1,9 @@
 $(document).ready(function(){
-  var foto = 0;
+  var numpersona = 0;
   var persones = new Array();
-  getpersona();
-
-  var imgs = ["./images/chica.jpg","./images/chico.jpg","./images/fea.jpg","./images/ivan.jpeg", "./images/jordi.jpg"];  
+  getpersones();
+  carregarpersona();
+  console.log(persones);
 
   $("body").keydown(function(e) {
     if(e.keyCode == 37) {
@@ -21,44 +21,70 @@ $(document).ready(function(){
   $(".botoin").click(inf);
 
   function inf() {
-    getfoto(persones.shift());
+    console.log(persones[numpersona]);
   }
 
-  function getpersona() {    
+  function getpersones() {    
 
-    $.getJSON( "http://172.16.9.24/iungo/iungo-app/public/persona/getids", function( data ) {
-      $.each( data, function( key, val ) {
-        persones[key] = val.idPersona;        
+    $.ajax({
+      method: "GET",
+      dataType: "json",
+      url: "http://172.16.9.24/iungo/iungo-app/public/persona/personesjson",
+      success: function( data ) {
+        $.each( data, function( key, val ) {
+          persones[key] = val;      
+        });
+      },
+      async: false
       });
-    });
   }
 
-  function getfoto(id) {
-    $.get( "http://172.16.9.24/iungo/iungo-app/public/persona/fotoperfil",
-     { idpersona: id} ).done(
-     function( data ) {
-      alert( data );
-    });
-   }
+  function carregarpersona(cor) {
 
-   function cor() {    
-    $(".fotoperfil img, .nompersona").animate({"left": "+=600%"}, 600 );               
-    $(".fotoperfil img, .nompersona").animate({ "left": "-=600%"}, 0 );
-    $(".fotoperfil img").attr("src", imgs[foto]);
-    foto++;
-    if (foto == imgs.length) {
-      foto = 0;
+    if (cor == "cor") {
+      $(".fotoperfil img").animate({"left": "+=600%"}, 600 );               
+      $(".fotoperfil img").animate({ "left": "-=600%"}, 0 );
+      $
+    } 
+    if(cor == "dis") {
+      $(".fotoperfil img").animate({"left": "-=600%"}, 600 );               
+      $(".fotoperfil img").animate({ "left": "+=600%" }, 0 );
     }
+
+    $.ajax({
+      method: "GET",
+      dataType: "json",
+      url: "http://172.16.9.24/iungo/iungo-app/public/persona/fotoperfil",
+      data: {'idpersona' : persones[numpersona].idPersona},
+      success: function( data ) {
+          $(".fotoperfil img").attr("src", "./images/" + data.img);
+       },
+      async: false
+      });
+    
+    numpersona++;
+    if (numpersona == persones.length) {
+      numpersona = 0;
+    }    
+  }
+
+  function cor() {
+    setmg();
+    carregarpersona("cor");    
   }
 
   function dis() {
-    $(".fotoperfil img, .nompersona").animate({"left": "-=600%"}, 600 );               
-    $(".fotoperfil img, .nompersona").animate({ "left": "+=600%" }, 0 );
-    $(".fotoperfil img").attr("src", imgs[foto]);
-    foto++;
-    if (foto == imgs.length) {
-      foto = 0;
-    }
+    carregarimg("dis");   
+  }
+
+  function setmg() {
+    $.ajax({
+      method: "GET",
+      dataType: "json",
+      url: "http://172.16.9.24/iungo/iungo-app/public/persona/setmg",
+      data: {'idReceptor' : persones[numpersona-1].idPersona},
+      async: false
+      });
   }
 
   $(".botomg").hover(function(){

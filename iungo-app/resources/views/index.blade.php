@@ -1,3 +1,12 @@
+<?php 
+if(Auth::check()==1){
+    header('Location: http://172.16.9.24/iungo/iungo-app/public/home');
+    echo "string";
+}
+echo Auth::check();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
     <head>
@@ -17,9 +26,8 @@
             <ul>
                 <li class=active><a href="#">¡ DISELO ! </a></li>
                 <li><a href="#" data-page=.page.howtofly>¿ CHATEAMOS ?</a></li>
-                <li><a href="#" data-page=.page.about>¡ ENTRA !</a></li>
-                <li> <a href="{{ url('/login') }}" data-page=.page.about>Login</a></li>
-                <li> <a href="{{ url('/register') }}" data-page=.page.about>Registrate</a></li> 
+                <li><a href="#" data-page=.page.about>¡ NOSOTROS!</a></li>
+                <li> <a href="{{ url('/login') }}" > ENTRA! </a></li>
             </ul>
         </nav>
        
@@ -49,7 +57,7 @@
 
 
 
-                <p>Contact us<br /><a target=_blank href="https://codepen.io/fershopls/details/GovZmV/">here</a></p>
+                <!--<p>Contact us<br /><a target=_blank href="https://codepen.io/fershopls/details/GovZmV/">here</a></p>-->
             </div>
         </div>
     </section>

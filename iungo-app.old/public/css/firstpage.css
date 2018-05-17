@@ -55,7 +55,6 @@ font-size: 20px;
   }
 
   .image-window {
-    cursor: pointer;
     height: 500px;
     width: 400px;
     margin: 0 auto;
@@ -63,7 +62,7 @@ font-size: 20px;
     border-radius: 10px;
     width: 100%;
     transition: height 0.3s ease-in-out;
-  }
+  }  
 
   .row {
     margin: 0px !important;
@@ -75,4 +74,12 @@ font-size: 20px;
 
   .botons {
     background-color: white;
+  }
+
+  #imatge2 {
+    display: none;
+  }
+
+  #imatge1 {
+    display: none;
   }

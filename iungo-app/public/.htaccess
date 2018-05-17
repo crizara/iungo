@@ -3,6 +3,8 @@
         Options -MultiViews
     </IfModule>
 
+    Header set Access-Control-Allow-Origin  "*"
+
     RewriteEngine On
 
     # Redirect Trailing Slashes If Not A Folder...

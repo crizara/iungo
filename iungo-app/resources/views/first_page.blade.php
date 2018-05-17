@@ -17,7 +17,7 @@
 
     <body>
         <div class="container-fluid" style="padding: 0px;">  
-            <nav class="navbar navbar-fixed-left navbar-minimal animate" role="navigation">
+             <nav class="navbar navbar-fixed-left navbar-minimal animate" role="navigation">
                 <div class="navbar-toggler animate">
                     <span class="menu-icon"></span>
                 </div>
@@ -28,7 +28,7 @@
                     <li><a href="{{ route('register') }}">Register</a></li>
                     @else
                     <li>
-                        <a href="#about-us" class="animate">
+                        <a href="{{ url('/chat') }}" class="animate">
                             <span class="desc animate"> Chats </span>
                             <i class="fas fa-comment"></i>           
 
@@ -50,10 +50,18 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="{{ url('/') }}" class="animate">
+                            <span class="desc animate">Me Gustas </span>
+                            <i class="far fa-thumbs-up"></i>
+                            </span>
+                        </a>
+                    </li>
+
                     <li data-toggle="modal" data-target=".bd-example-modal-sm">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">
-                            <span class="desc animate"> Salir</span>
+                                document.getElementById('logout-form').submit();">
+                            <span class="desc animate">Cerrar Sessión</span>
                             <i class="fas fa-sign-out-alt"></i>   
                             </span>
                         </a>
@@ -71,19 +79,19 @@
 
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="firstpage">
                     <div class="col-md-4"></div>
                     <div class="col-md-4 fotoperfil">
                         <div class="image-window">
-                            <img src="{{ asset('images/fea.jpg') }}" height="500">
+                            <img id="imatge1" src="" height="500">
                         </div>
                     </div>
                     <div class="col-md-4"></div>
                 </div>
-                <div class="col-md-12">
+                <div class="firstpage">
                     <div class="col-md-4"></div>
                     <div class="col-md-4 botons">
-                        <div class="col-md-12">
+                        <div class="firstpage">
                             <div class="col-md-4 botonsfoto">
                                 <span class="botodis botofoto"><i class="far fa-times-circle"></i></span>
                             </div>
@@ -125,13 +133,5 @@
         return confirm("Do you want to delete this item?");
     });
 </script>
-
-
-
-
-
-
-
     </body>
-
 </html>

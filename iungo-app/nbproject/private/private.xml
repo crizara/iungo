@@ -3,22 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/database/seeds/UserTableSeeder.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/app/Role.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/database/seeds/RoleTableSeeder.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/app/Http/Controllers/HomeController.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/database/seeds/DatabaseSeeder.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/public/css/table.css</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/public/js/table.js</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/routes/web.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/resources/views/todos.blade.php</file>
             <file>file:/opt/lampp/htdocs/iungo/iungo-app/resources/views/first_page.blade.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/app/User.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/app/Http/Controllers/ConfigController.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/app/Http/Controllers/PersonaController.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/database/migrations/2014_10_12_000000_create_users_table.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/app/Http/Controllers/Auth/RegisterController.php</file>
-            <file>file:/opt/lampp/htdocs/iungo/iungo-app/app/Persona.php</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/public/js/userPerfil.js</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/public/js/menu.js</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/resources/views/layouts/app.blade.php</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/resources/views/userChats.blade.php</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/public/css/userChats.css</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/public/css/menu.css</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/resources/views/index.blade.php</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/resources/views/home.blade.php</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/routes/web.php</file>
+            <file>file:/opt/lampp/htdocs/iungo/iungo-app/resources/views/auth/register.blade.php</file>
         </group>
     </open-files>
 </project-private>

@@ -3,8 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\Persona as Authenticatable;
 
-class Persona extends Model
-{
-    protected $fillable = ['idPersona', 'idUser', 'Nom', 'Cognom', 'dataNeixement','Sexe'];
+class Persona extends Model {
+    
+    public $table = "persona";
+
+    protected $tfillable = 'singular';
+    protected $fillable = ['idPersona', 'idUser', 'Nom', 'Cognom', 'dataNeixement', 'Sexe'];
+
 }
