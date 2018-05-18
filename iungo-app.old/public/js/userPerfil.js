@@ -15,6 +15,7 @@ var PictureUpdate = /** @class */ (function () {
     };
     PictureUpdate.prototype.updateCover = function () {
         var _this = this;
+        alert(_this);
         var input = $('input', this.cover);
         input.change(function (e) {
             var img = URL.createObjectURL(e.target.files[0]);
@@ -23,9 +24,12 @@ var PictureUpdate = /** @class */ (function () {
     };
     PictureUpdate.prototype.fireAJAX = function (url, data, element) {
         var _this = this;
+
         $.ajax({
             type: "POST",
             data: data,
+            url:"http://172.16.9.24/iungo/iungo-app/public/update/img-perfil",
+            async: false,
             beforeSend: function () {
                 _this.startLoader(element);
             },
@@ -48,3 +52,5 @@ var PictureUpdate = /** @class */ (function () {
     return PictureUpdate;
 }());
 new PictureUpdate();
+
+

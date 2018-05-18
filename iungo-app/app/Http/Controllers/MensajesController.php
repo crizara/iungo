@@ -16,11 +16,8 @@ public function mostrarColumnaChats() {
       $idEnviador = DB::select('select idPersona from persona where idUser = :id', ['id' => $id]);
       $idloged=$idEnviador[0]->idPersona;
 
-      $columnaChat=DB::select('select chats from (SELECT * from (
-        (SELECT idReceptor as chats, hora FROM Missatges WHERE idEnviador = ' . $idloged . ' ORDER by hora DESC)
-        UNION
-        (SELECT idEnviador as chats, hora FROM Missatges WHERE idReceptor = ' . $idloged . ' ORDER by hora DESC)) bd  
-        ORDER BY bd.hora DESC) dd  GROUP by chats ORDER by hora');
+      $columnaChat=DB::select('select t.chats, max(t.hora) as diahora from (SELECT idReceptor as chats, hora FROM Missatges WHERE idEnviador = ' . $idloged .' UNION SELECT idEnviador as chats, hora FROM Missatges WHERE idReceptor = '. $idloged .' UNION SELECT idEnviador as chats, dia FROM `MeGusta` WHERE idReceptor = ' . $idloged .' and idEnviador in (SELECT idReceptor from MeGusta where idEnviador = ' . $idloged .')
+) t group by t.chats ORDER BY diahora  DESC');
 
       $personesChats = array();
 
@@ -46,10 +43,12 @@ $chats=DB::select('select * FROM Missatges WHERE (idEnviador ='.$idloged.' and i
 ORDER BY Missatges.hora');
 
 foreach ($chats as $missatge) {
-	if ($idloged == $missatge->idEnviador) {
-		echo '<li class="clearfix"><div class="message-data align-right"><span class="message-data-time" >' . $missatge->hora . '</span> &nbsp; &nbsp;<span class="message-data-name" >Tú</span> <i class="fa fa-circle me"></i></div><div class="message other-message float-right"><pre>' . $missatge->value .'</pre></div></li>';
+  $missatgeValue = str_replace(">","&gt;",str_replace("<","&lt;", $missatge->value));
+	if ($idloged == $missatge->idEnviador) {    
+
+		echo '<li class="clearfix"><div class="message-data align-right"><span class="message-data-time" >' . $missatge->hora . '</span> &nbsp; &nbsp;<span class="message-data-name" >Tú</span> <i class="fa fa-circle me"></i></div><div class="message other-message float-right">' . $missatgeValue .'</div></li>';
 	} else {
-		echo '<li class="personachat"><div class="message-data"><span class="message-data-name"><i class="fa fa-circle online"></i><span class="persona"> ' . $nomReceptor[0]->Nom . " " . $nomReceptor[0]->Cognom . '</span></span><span class="message-data-time">' . $missatge->hora . '</span></div><div class="message my-message"><pre>' . $missatge->value .'</pre></div></li>';
+		echo '<li class="personachat"><div class="message-data"><span class="message-data-name"><i class="fa fa-circle online"></i><span class="persona"> ' . $nomReceptor[0]->Nom . " " . $nomReceptor[0]->Cognom . '</span></span><span class="message-data-time">' . $missatge->hora . '</span></div><div class="message my-message">' . $missatgeValue .'</div></li>';
 	}
 }
 
@@ -71,6 +70,7 @@ DB::table('Missatges')->insert(
         );
 
 }
+
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 use App\Role;
 use App\User;
+use App\Persona;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -55,6 +56,10 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'cognom' => 'required|string|max:255',
+            'dataNeixement' => 'required|date',
+            'idSexe'=> 'required|string|max:255',
+            'idBusca'=> 'required|string|max:255',
         ]);
     }
 
@@ -74,6 +79,15 @@ class RegisterController extends Controller
     $user
         ->roles()
         ->attach(Role::where('name', 'user')->first());
+
+        $persona = Persona::create([
+            'idUser' => $user->id,
+            'Nom' => $user->name,
+            'Cognom' => $data['cognom'],
+            'dataNeixement' => $data['dataNeixement'],
+            'idSexe' => $data['idSexe'],
+            'idBusca' => $data['idBusca'],
+        ]);
     return $user;
     }
 }

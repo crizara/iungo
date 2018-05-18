@@ -11,17 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
+Route::get('/', 'indexController@index');
+
+
+
+
 Route::get('/formularioconfig', 'ConfigController@index');
 Route::get('/Personas', 'HomeController@listarPersonas');
 Route::get('/userList', 'PersonaController@listarUserPersonas');
 Auth::routes();
 Route::get('/Personas', 'HomeController@listarPersonas');
-Route::get('/', function () {
-    return view('index');
-});
+
 Route::get('/home', function () {
     return view('first_page');
 });
@@ -46,8 +47,11 @@ Route::get('/persona/personesjson', 'PersonaController@persones_json')->name('pe
 Route::get('/edit/perfil', 'PersonaController@showperfil')->name('edit.perfil');
 Route::post('/perfil/update/{id}', 'PersonaController@updateperfil')->name('perfil.update');
 
+/*ME GUSTA*/
+Route::get('/persona/setmg', 'PersonaController@setMg')->name('persona.setMg');
 
-/*Mostrar lista de chats*/
+/*CHATS*/
 Route::get('/chat', 'MensajesController@mostrarColumnaChats');
 Route::get('/mostrarChat', 'MensajesController@mostrarColumnaChats');
 Route::get('/chatUser/{id}', 'MensajesController@mostrarChatCorrespondiente')->name('user.chat');
+Route::get('/sendChat', 'MensajesController@sendChat')->name('send.chat');

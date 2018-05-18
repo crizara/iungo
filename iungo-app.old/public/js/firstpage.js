@@ -3,6 +3,7 @@ $(document).ready(function(){
   var persones = new Array();
   getpersones();
   carregarpersona();
+  console.log(persones);
 
   $("body").keydown(function(e) {
     if(e.keyCode == 37) {
@@ -68,19 +69,20 @@ $(document).ready(function(){
   }
 
   function cor() {
-    carregarpersona("cor");
     setmg();
+    carregarpersona("cor");    
   }
 
   function dis() {
-    carregarpersona("dis");   
+    carregarimg("dis");   
   }
 
   function setmg() {
     $.ajax({
-      method: "POST",
+      method: "GET",
+      dataType: "json",
       url: "http://172.16.9.24/iungo/iungo-app/public/persona/setmg",
-      data: {'idReceptor' : },
+      data: {'idReceptor' : persones[numpersona-1].idPersona},
       async: false
       });
   }

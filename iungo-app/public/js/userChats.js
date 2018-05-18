@@ -3,11 +3,11 @@ $( document ).ready(function() {
 	var totalmissatges;
 
 	$('#people-list ul li').click(function() {
-		carregarchat($(this).attr('data-id'));
+		carregarchat($(this).attr('data-id'), false);
 		totalmissatges = $('.chat-history ul li.personachat').length;
 		$('.chat-history').animate({ scrollTop: $('.chat-history').prop("scrollHeight")}, 2000);         
 		setInterval(function(){
-			carregarchat($('#form1').attr('data-id-user'));
+			carregarchat($('#form1').attr('data-id-user'), true);
 			totalmissatges = $('.chat-history ul li.personachat').length;
 		}, 1000);
 	});
@@ -22,14 +22,14 @@ $( document ).ready(function() {
 		});
 	});
 
-	function carregarchat(idReceptor) {
+	function carregarchat(idReceptor, async) {
 
 		$('#form1').attr("data-id-user", idReceptor);
 
 		$.ajax({
 			url: "http://172.16.9.24/iungo/iungo-app/public/chatUser/" + idReceptor,
 			type:'GET',
-			async: false,
+			async: async,
 			success: function(data){
 				$('.chat-history ul').html(data);
 			}
@@ -93,7 +93,7 @@ $( document ).ready(function() {
 			data: {'idReceptor' : idUser, 'mensaje' : mensaje},
 			async: false,
 			success: function(data) {
-				carregarchat($('#form1').attr('data-id-user'));                
+				carregarchat($('#form1').attr('data-id-user'), false);                
 			}
 		});
 		$('.chat-history').animate({ scrollTop: $('.chat-history').prop("scrollHeight")}, 2000); 

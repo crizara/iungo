@@ -10,12 +10,16 @@ header("Access-Control-Allow-Origin: *");
         <meta charset="UTF-8">
         <title>Iungo - Chat</title>
 
+
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
         <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
-        <link href="{{ asset('css/userChats.css') }}" rel="stylesheet">  
+        <link href="{{ asset('css/userChats.css') }}" rel="stylesheet"> 
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">-->
+
         <link href="{{ asset('css/menu.css') }}" rel="stylesheet"> 
 
     </head>
@@ -38,14 +42,14 @@ header("Access-Control-Allow-Origin: *");
                         <span class="desc animate"> Chats </span>
                         <i class="fas fa-comment"></i>           
 
+
                     </a>
                 </li>
-               
-                <li>
-                    <a href="{{ url('#') }}" class="animate">
-                        <span class="desc animate"> Notificaciones </span>
-                        <i class="fas fa-comment"></i>           
 
+                <li>
+                    <a href="{{ url('#') }}" class="animate" data-toggle="modal" data-target="#exampleModalCenter">
+                        <span class="desc animate"> Notificaciones </span>
+                        <i class="far fa-bell"></i>
                     </a>
                 </li>
 
@@ -136,6 +140,12 @@ header("Access-Control-Allow-Origin: *");
 
         </div> <!-- end container -->
 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+
         <script id="message-template" type="text/x-handlebars-template">
             <li class="clearfix">
             <div class="message-data align-right">
@@ -164,8 +174,6 @@ header("Access-Control-Allow-Origin: *");
         <script src='http://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js'></script>
         <script src="{{ asset('js/menu.js') }}"></script>
         <script src="{{ asset('js/userChats.js') }}"></script>
-
-
 
 
     </body>

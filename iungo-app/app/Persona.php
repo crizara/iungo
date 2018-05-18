@@ -10,6 +10,6 @@ class Persona extends Model {
     public $table = "persona";
 
     protected $tfillable = 'singular';
-    protected $fillable = ['idPersona', 'idUser', 'Nom', 'Cognom', 'dataNeixement', 'Sexe'];
+    protected $fillable = ['idPersona', 'idUser', 'Nom', 'Cognom', 'dataNeixement', 'idSexe', 'idBusca'];
 
 }

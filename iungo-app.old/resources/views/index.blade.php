@@ -1,3 +1,12 @@
+<?php 
+if(Auth::check()==1){
+    header('Location: http://172.16.9.24/iungo/iungo-app/public/home');
+    echo "string";
+}
+echo Auth::check();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
     <head>

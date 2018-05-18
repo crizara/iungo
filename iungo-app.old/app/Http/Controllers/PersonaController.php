@@ -54,16 +54,35 @@ class PersonaController extends Controller {
             return 'error no té persona';
         }
     }
+    
+    public function setMg(Request $request){
+        
+        $receptor = $request->input('idReceptor');
+        
+        $id = Auth::id();
+        $user = DB::table('users')->join('persona', 'users.id', '=', 'persona.idUser')->where('users.id', $id)->get();
+        DB::table('MeGusta')->insert(
+                ['idEnviador'=>$user[0]->idPersona,'idReceptor'=>$receptor,'dia'=> date("Y-m-d")]
+        );
+    }
 
     public function showperfil() {
         $id = Auth::id();
-        $user = DB::table('users')->join('persona', 'users.id', '=', 'persona.idUser')->join('Galeria', 'persona.idPersona', '=', 'Galeria.idPersona')->where('users.id', $id)->get();
+        $user = DB::table('users')->select('persona.*')->join('persona', 'users.id', '=', 'persona.idUser')->where('users.id', $id)->get();
         $user = $user->toArray();
+        $arraySexe=DB::table('Sexo')->select('*')->get();
+        $arraySexe = $arraySexe->toArray();
+
+        for ($i = 0; $i < sizeof($arraySexe); $i++) {
+            $arraySexe[$i] = get_object_vars($arraySexe[$i]);
+        }
+        //dd($arraySexe);
         for ($i = 0; $i < sizeof($user); $i++) {
             $user[$i] = get_object_vars($user[$i]);
         }
         if (sizeof($user) > 0) {
-            return view('userPerfilEdit', ['user' => $user[0]]);
+
+            return view('userPerfilEdit', ['user' => $user[0] , 'arraySexe' => $arraySexe]);
         } else {
             return 'error no té persona';
         }
@@ -94,7 +113,7 @@ class PersonaController extends Controller {
 
     public function updateperfil($id, Request $request) {
         $userData = $request->all();
-        DB::table('persona')
+         DB::table('persona')
                 ->where('idPersona', $id)
                 ->update(
                         ['Cognom' => $userData["Cognom"]]
@@ -104,21 +123,17 @@ class PersonaController extends Controller {
                 ->where('idPersona', $id)
                 ->update(['Nom' => $userData["Nom"]]);
         
-          DB::table('persona')
+        DB::table('persona')
                 ->where('idPersona', $id)
                 ->update(['dataNeixement' => $userData["dataNeixement"]]);
           
-            DB::table('persona')
+        DB::table('persona')
                 ->where('idPersona', $id)
-                ->update(['Sexe' => $userData["Sexe"]]);
+                ->update(['idSexe' => $userData["idSexe"]]);
+        DB::table('persona')
+                ->where('idPersona', $id)
+                ->update(['idbusca' => $userData["idbusca"]]);
 
-
-//        $userData = $request->all();
-//        
-//        var_dump($userData);
-//
-//
-//        Persona::find($id)->update($userData);
 
         return redirect('/user/perfil');
     }

@@ -1,4 +1,106 @@
 body {
-	overflow-x: hidden;
+    overflow-x: hidden;
 }
+
+.firstpage{
+    width: 100% !important;
+    clear:both;
+}
+
+@media screen and (max-width: 992px) {
+    .firstpage {
+        width: 55% !important;
+        margin: 0 auto;
+
+    }
+
+
+
+
+}
+
+
+@media screen and (max-width: 453px) {
+
+    .botons{
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+       
+    }
+
+
+    .botodis{
+        width: 11% !important; 
+        color: #565353;
+        font-size: 50px;
+    } 
+
+    .botomg{
+        width: 11%;
+        color: #ef9797;
+        font-size: 50px;
+
+
+    }
+
+    .botoin{
+        width: 11%;
+        color: #77a5d8;
+        font-size: 25px;
+
+    }
+    
+    
+
+
+}
+
+
+/*@media only screen and (max-width:480px) { 
+     Smartphone view: 1 tile 
+    .fa-times-circle  {
+        width: 5% !important;
+       
+    }
+}
+@media only screen and (max-width:650px) and (min-width:481px) { 
+     Tablet view: 2 tiles 
+    .botodis ,botomg, botoin i  {
+        width: 50%;
+        
+
+    }
+}
+@media only screen and (max-width:1050px) and (min-width:651px) { 
+     Small desktop / ipad view: 3 tiles 
+   .botodis ,botomg, botoin  {
+        width: 33.3%;
+       
+
+    }
+}
+@media only screen and (max-width:2500px) and (min-width:1051px) { 
+     Medium desktop: 4 tiles 
+    .botodis ,botomg, botoin  {
+        width: 20%;
+      
+
+    }
+}*/
+
+
+
+
+
+
+/*@media screen and (min-height: 1366px) {
+    .firstpage {
+        clear: both;
+
+    }
+}*/
+
+
 
