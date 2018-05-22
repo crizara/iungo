@@ -9,31 +9,52 @@
 
         <title>{{ config('app.name', 'Iungo') }}</title>
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <!-- Styles 
+        
         <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-        <link href="{{ asset('css/userPerfil.css') }}" rel="stylesheet"> 
 
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/vistaprincipal.css') }}" rel="stylesheet">
 
-
+        -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link href="{{ asset('css/userPerfil.css') }}" rel="stylesheet">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <link href="{{ asset('css/table.css') }}" rel="stylesheet"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
 
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/vistaprincipal.css') }}" rel="stylesheet">
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>        
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">    
         <link href="{{ asset('css/menu.css') }}" rel="stylesheet"> 
 
+        @yield('linkcss')
 
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="{{ asset('js/moment.js') }}"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js'></script>
+        <script src="{{ asset('js/vistaprincipal.js') }}"></script>
+        <script src="https://use.fontawesome.com/242f61bc37.js"></script>
 
+        <script src="{{ asset('js/menu.js') }}"></script>
 
+        <script src="{{ asset('js/table.js') }}"></script>
+
+        @yield('linkjs')
 
     </head>
     <body style="background-color: #ef9797">
@@ -45,20 +66,20 @@
                 <ul class="navbar-menu animate">
                     @if (Auth::guest())
 
-                    
-                     <li><a href="{{ url('/') }}">
+
+                    <li><a href="{{ url('/') }}">
                             <span class="desc animate"> Home </span>
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
-                    
+
                     <li><a href="{{ route('login') }}">
                             <span class="desc animate"> Login </span>
                             <i class="fas fa-sign-in-alt"></i>
                         </a>
                     </li>
 
-                   
+
 
                     @else
                     <li>
@@ -69,9 +90,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#about-us" class="animate">
-                            <span class="desc animate"> Notificaciones </span>
-                            <i class="fas fa-bell"></i>           
+                        <a href="{{ url('/iungos') }}" class="animate">
+                            <span class="desc animate"> Iungos </span>
+                            <i class="fas fa-heart"></i>           
 
                         </a>
                     </li>
@@ -92,9 +113,19 @@
                         </a>
                     </li>
 
+                    @if(Auth::user()->hasRole('admin'))
+                    <li>
+                        <a href="{{ url('/userList') }}" class="animate">
+                            <span class="desc animate">Lista Usuarios </span>
+                            <i class="fas fa-list-ol"></i>
+                            </span>
+                        </a>
+                    </li>
+                    @endif
+
                     <li data-toggle="modal" data-target=".bd-example-modal-sm">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
+    document.getElementById('logout-form').submit();">
                             <span class="desc animate">Cerrar Sessión</span>
                             <i class="fas fa-sign-out-alt"></i>   
                             </span>
@@ -109,51 +140,5 @@
             </nav>
             @yield('content')
         </div>
-
-        <!-- Scripts -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js'></script>
-
-        <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ asset('js/vistaprincipal.js') }}"></script>
-        <script src="https://use.fontawesome.com/242f61bc37.js"></script>
-
-        <script src="{{ asset('js/menu.js') }}"></script>
-
-
-
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <script src="{{ asset('js/table.js') }}"></script>
-
-
-        <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-        <script src="{{ asset('js/userPerfil.js') }}"></script>
-
-
-
-<!--        <script id="message-template" type="text/x-handlebars-template">
-            <li class="clearfix">
-            <div class="message-data align-right">
-            <span class="message-data-time" >, Today</span> &n                        bsp; &nbsp;
-            <span class="message-data-name" >Olia</span> <i class="fa fa-circle me"></i>
-            </div>
-            <div class="message other-message float-right">
-
-            </div>
-            </li>
-        </script>
-
-        <script        src='http://cdnjs.cloudf        lare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js'></script>
-        <script src='http://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js'></script>
-        <script src="{{ asset('js/userChats.js') }}"></script>-->
-
-
-
-
-
-
     </body>
 </html>

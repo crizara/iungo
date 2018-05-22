@@ -1,0 +1,132 @@
+@extends('layouts.app')
+
+@section('linkcss')
+
+<link href="{{ asset('css/userPerfil.css') }}" rel="stylesheet">
+
+@endsection
+
+
+
+@section('linkjs')
+
+<script src="{{ asset('js/userPerfil.js') }}"></script>
+
+@endsection
+
+
+
+@section('content')
+
+
+
+<div class="div-body" style="background:linear-gradient(to right bottom, #EF9797, rgba(255, 193, 226, 0.15)), url(<?php echo "../images/".$fotoportada;?>) no-repeat; ">
+ <div class="shadow overflow">
+  <div id="header" style="background-image: url(<?php echo "../images/".$fotoportada;?>) !important; "></div>
+  <div id="profile">
+    <div class="image">
+      <img src="../images/{{ $fotoperfil}}" alt="" />
+    </div>
+    <div class="name">
+      {{ $user['Nom'] }} {{ $user['Cognom']}}
+    </div>
+    <div class="nickname">
+      {{ $user['email'] }}
+    </div>
+    <div class="location" style="text-align: center;">
+     <div class="row">
+    <!--  <div class="col-sm-12">
+       <a href="{{ route('edit.perfil') }}" class="btn btn-iungo">Editar información</a>
+     </div> -->
+      <div class="col-sm-6">
+       <a href="{{ route('edit.perfil') }}" class="btn btn-iungo"><i class="fa fa-edit" aria-hidden="true"></i> Información</a>
+     </div> 
+     <div class="col-sm-6">
+       <a href="{{ route('user.galeria', $user['idPersona']) }}" class="btn btn-iungo">Mi galeria </a>
+     </div> 
+   </div> 
+   <div class="row margin">
+    <div class="col col-sm-6 ">
+     <a class="btn btn-iungo2" data-toggle="modal" data-target="#portada"><i class="fa fa-edit" aria-hidden="true"></i> Foto portada</a>
+   </div>
+   <div class="col col-sm-6 separar">
+     <a class="btn btn-iungo2" data-toggle="modal" data-target="#imagendeperfil"> <i class="fa fa-edit" aria-hidden="true"></i>
+  Foto perfil</a>
+   </div>
+ </div> 
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL CHANGE IMAGE PROFILE-->
+
+<div class="modal fade" id="imagendeperfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <p class="titulo-modal">Foto perfil</p>
+      <div class="row" style="text-align: center; margin-bottom: 1em;">
+       <div class="col col-sm-12" style="margin-bottom: 1em;">
+        <img  src="../images/{{ $fotoperfil }}" class="img-thumbnail imagen-modal" id="img-perfil" />
+      </div>
+  
+        <form id="profilePictureForm" action="{{ route('update.image.perfil', $user['idPersona']) }}" enctype="multipart/form-data" method="POST">
+          {{ csrf_field() }}
+          <div class="col col-sm-4">
+          <span class="btn btn-iungo2 btn-file">Editar perfil <input name="file" type="file" onchange="document.getElementById('img-perfil').src = window.URL.createObjectURL(this.files[0])" value="../images/{{ $fotoperfil }}" />
+          </span>
+          </div>
+       <div class="col col-sm-4">
+          <button type="submit" class="btn btn-iungo separar" >Guardar cambios</button>
+          </div>
+        </form>
+    <div class="col col-sm-4">
+       <a class="btn btn-cancelar" data-dismiss="modal">Cerrar</a>
+     </div>
+   </div>
+
+ </div>
+</div>
+</div>
+
+
+<!-- MODAL CHANGE IMAGE PORTADA-->
+
+
+
+<div class="modal fade" id="portada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <p class="titulo-modal">Foto portada</p>
+      <div class="row" style="text-align: center; margin-bottom: 1.5em; ">
+       <div class="col col-sm-12" style="margin-bottom: 1em;">
+        <img  src="../images/{{ $fotoportada }}" class="img-thumbnail imagen-modal" id="img-portada" />
+      </div>
+      
+        <form id="profilePictureForm" action="{{ route('update.image.portada', $user['idPersona']) }}" enctype="multipart/form-data" method="POST">
+          {{ csrf_field() }}
+         <div class="col col-sm-4">
+          <span class="btn btn-iungo2 btn-file">Editar portada <input name="file" type="file" onchange="document.getElementById('img-portada').src = window.URL.createObjectURL(this.files[0])" value="../images/{{ $fotoportada }}" />
+          </span>
+          </div>
+  <div class="col col-sm-4">
+          <button type="submit" class="btn btn-iungo separar" >Guardar cambios</button>
+          </div>
+        </form>
+      <div class="col col-sm-4">
+       <a class="btn btn-cancelar" data-dismiss="modal">Cerrar</a>
+     </div>
+   </div>
+
+ </div>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $('body').css("background", "linear-gradient(to right bottom, #ea8383, rgba(0, 128, 0, 0.5)), url(./images/{{ $fotoportada}})");
+  });
+  
+</script>
+@endsection

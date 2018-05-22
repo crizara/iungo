@@ -1,6 +1,6 @@
 <?php 
 if(Auth::check()==1){
-    header('Location: http://172.16.9.24/iungo/iungo-app/public/home');
+    header('Location: home');
     echo "string";
 }
 echo Auth::check();
@@ -24,7 +24,7 @@ echo Auth::check();
     <section class="page parallax with background fixed background-iungo">
         <nav class="nav">
             <ul>
-                <li class=active><a href="#">¡ DISELO ! </a></li>
+                <li class=active><a href="#">¡ DÍSELO ! </a></li>
                 <li><a href="#" data-page=.page.howtofly>¿ CHATEAMOS ?</a></li>
                 <li><a href="#" data-page=.page.about>¡ NOSOTROS!</a></li>
                 <li> <a href="{{ url('/login') }}" > ENTRA! </a></li>
@@ -39,8 +39,7 @@ echo Auth::check();
         <div class='inner'>
             <div class='container text right'>
                 <h1>Conoce gente nueva.</h1>
-                            <p><strong>Registrate y experimenta</strong><br />Podrás conocer gente interesante.<br><h1><a href="ourteam.html"><font color="red"><b> Our Team</b></h1></a><br /><br>
-                            <a class="btn btn-default" href="#" role="button">Link</a>
+                            <p><strong>Registra-te y experimenta</strong><br />Podrás conocer gente interesante.<br>
                             </b></p></font></b></a>
             </div>
         </div>

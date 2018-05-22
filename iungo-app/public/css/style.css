@@ -1,106 +1,238 @@
-body {
-    overflow-x: hidden;
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+.texto-centrado{
+    text-align: center;
 }
-
-.firstpage{
-    width: 100% !important;
-    clear:both;
-}
-
-@media screen and (max-width: 992px) {
-    .firstpage {
-        width: 55% !important;
-        margin: 0 auto;
-
-    }
-
-
-
+.header{
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 50px;
+    font-weight: 200;
 
 }
 
-
-@media screen and (max-width: 453px) {
-
-    .botons{
-        position: relative;
-        min-height: 1px;
-        padding-left: 15px;
-        padding-right: 15px;
-       
+.header span{
+    color: #5379fa !important;
+}
+@keyframes latidos {
+    from { 
+        transform: none; 
     }
-
-
-    .botodis{
-        width: 11% !important; 
-        color: #565353;
-        font-size: 50px;
-    } 
-
-    .botomg{
-        width: 11%;
-        color: #ef9797;
-        font-size: 50px;
-
-
+    20% {
+      transform: scale(1.1);   
     }
-
-    .botoin{
-        width: 11%;
-        color: #77a5d8;
-        font-size: 25px;
-
+    36% {
+      transform: scale(1.1);   
     }
+    50% {
+        transform: scale(1.1); 
+    }
+    to { transform: none; 
     
-    
-
-
+    }
+}
+/* En la clase corazon vamos a llamar latidos en la animación  */
+.corazon {
+    display: inline-block;
+    font-size: 50px;
+    color: #7980E1;
+    animation: latidos .9s infinite;
+  
 }
 
 
-/*@media only screen and (max-width:480px) { 
-     Smartphone view: 1 tile 
-    .fa-times-circle  {
-        width: 5% !important;
-       
-    }
+
+.register input[type=text]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    text-align: center;
 }
-@media only screen and (max-width:650px) and (min-width:481px) { 
-     Tablet view: 2 tiles 
-    .botodis ,botomg, botoin i  {
-        width: 50%;
-        
 
-    }
+.register select{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    text-align: center;
 }
-@media only screen and (max-width:1050px) and (min-width:651px) { 
-     Small desktop / ipad view: 3 tiles 
-   .botodis ,botomg, botoin  {
-        width: 33.3%;
-       
-
-    }
+.register input[type=email]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0px !important;
+    padding: 0px !important;
 }
-@media only screen and (max-width:2500px) and (min-width:1051px) { 
-     Medium desktop: 4 tiles 
-    .botodis ,botomg, botoin  {
-        width: 20%;
-      
 
-    }
-}*/
+.register input[type=password]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+   
+    text-align: center;
+    padding: 0px !important;
+}
+
+.register input[type=submit]{
+    width: 250px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 3px;
+   
+    padding: 0px !important;
+}
+
+.register input[type=submit]:hover{
+    opacity: 0.5;
+}
+
+.register input[type=submit]:active{
+    opacity: 0.5;
+}
+
+.register input[type=email]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+.register input[type=text]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.register input[type=password]:focus{
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.register input[type=submit]:focus{
+    outline: none;
+}
+
+.centrar  {
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  /*nos posicionamos en el centro del navegador*/
+  top:45%;
+  left:50%;
+  /*determinamos una anchura*/
+  width:400px;
+  /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+  margin-left:-200px;
+  /*determinamos una altura*/
+  height:520px;
+  /*indicamos que el margen superior, es la mitad de la altura*/
+  margin-top:-260px;
+  padding:1.8em;
+}
+
+.margin {
+    margin-top:12px;
+}
+
+.color-white{
+    color: white;
+}
+.texto-derecha{
+    text-align: right;
+}
 
 
+.cancelar{
+    width: 250px !important;
+    height: 40px !important;
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    border-radius: 3px;
+    text-decoration: none !important;
+
+}
+
+.cancelar button:hover{
+    opacity: 0.8 !important;
+    color: #333;
+    border-color: #888;
+    outline: 0;
+}
+
+.cancelar button:active{
+    opacity: 0.6;
+}
+.cancelar button:focus{
+    outline: none;
+}
 
 
+.register input[type=button]{
+    width: 250px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 3px;
+   
+    padding: 0px !important;
+}
 
+.register input[type=button]:hover{
+    opacity: 0.5;
+}
 
-/*@media screen and (min-height: 1366px) {
-    .firstpage {
-        clear: both;
+.register input[type=button]:active{
+    opacity: 0.5;
+}
+.register input[type=button]:focus{
+    outline: none;
+}
 
-    }
-}*/
-
-
-
+.colorLetra{
+    color:#737171;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}

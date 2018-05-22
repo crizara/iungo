@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>  
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">       
 </head>
 <body>
@@ -57,7 +58,7 @@
       <div class="row">
           <label class="col-sm-2" for="nombre">Data de Nacimiento</i></label>
           <div class="col-sm-8">
-             <input type="text" name="dataNeixement"  class="texto" value="{{ $user['dataNeixement'] }}" required autofocus>
+             <input type="text" id="dataNeixement" name="dataNeixement"  class="texto" value="{{ $user['dataNeixement'] }}" required autofocus>
          </div>
          <div class="col-sm-2">
          </div>
@@ -128,9 +129,16 @@
 
 </div>
 
-
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( document ).ready(function() {
+    $( "#dataNeixement" ).datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+  });
+  </script>
 </body>
 </html>
 

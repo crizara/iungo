@@ -3,13 +3,14 @@ $( document ).ready(function() {
 	var totalmissatges;
 
 	$('#people-list ul li').click(function() {
+		totalmissatges = 99999999999999999;
 		carregarchat($(this).attr('data-id'), false);
 		totalmissatges = $('.chat-history ul li.personachat').length;
-		$('.chat-history').animate({ scrollTop: $('.chat-history').prop("scrollHeight")}, 2000);         
+		$('.chat-history').animate({ scrollTop: $('.chat-history').prop("scrollHeight")}, 1500);         
 		setInterval(function(){
 			carregarchat($('#form1').attr('data-id-user'), true);
 			totalmissatges = $('.chat-history ul li.personachat').length;
-		}, 1000);
+		}, 3000);
 	});
 
 	$('.search input').keyup(function(){
@@ -27,7 +28,7 @@ $( document ).ready(function() {
 		$('#form1').attr("data-id-user", idReceptor);
 
 		$.ajax({
-			url: "http://172.16.9.24/iungo/iungo-app/public/chatUser/" + idReceptor,
+			url: "chatUser/" + idReceptor,
 			type:'GET',
 			async: async,
 			success: function(data){
@@ -49,24 +50,24 @@ $( document ).ready(function() {
 
 			else if (Notification.permission === "granted") {
 				var notification = new Notification('Nuevo mensaje de ' + ultimapersona, {
-					icon: 'http://172.16.9.24/iungo/iungo-app/public/images/fondoiungo.jpg',
+					icon: 'images/fondoiungo.jpg',
 					body: ultimmissatge,
 				});
 
 				notification.onclick = function () {
-					window.open("http://172.16.9.24/iungo/iungo-app/public/chat");      
+					window.open("chat");      
 				};
 			}
 			else if (Notification.permission !== "denied") {
 				Notification.requestPermission(function (permission) {
 					if (permission === "granted") {
 						var notification = new Notification('Nuevo mensaje', {
-							icon: 'http://172.16.9.24/iungo/iungo-app/public/images/fondoiungo.jpg',
+							icon: 'images/fondoiungo.jpg',
 							body: ultimmissatge,
 						});
 
 						notification.onclick = function () {
-							window.open("http://172.16.9.24/iungo/iungo-app/public/chat");      
+							window.open("chat");      
 						};
 					}
 				});
@@ -87,7 +88,7 @@ $( document ).ready(function() {
 		idUser = $('#form1').attr('data-id-user');
 		mensaje = $('#message-to-send').val();
 		$.ajax({
-			url:"http://172.16.9.24/iungo/iungo-app/public/sendChat",
+			url:"sendChat",
 			type: "GET",
 			dataType: "json",
 			data: {'idReceptor' : idUser, 'mensaje' : mensaje},

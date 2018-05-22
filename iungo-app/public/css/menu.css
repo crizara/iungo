@@ -1,15 +1,15 @@
 
 .white-background {
-	background-color: rgb(255, 255, 255);
-	color: rgb(51, 51, 51);
+	background-color: rgb(51, 51, 51);
+	color: rgb(255, 255, 255);
 	padding-top: 10px;
 	border-radius: 4px;
 }
 .title {
 	font-size: 3em;
 	font-weight: 700;
-	text-shadow: 0px 0px 5px rgb(51, 51, 51);
-	text-shadow: 0px 0px 5px rgba(51, 51, 51, 0.8);
+	text-shadow: 0px 0px 5px rgb(255, 255, 255);
+	text-shadow: 0px 0px 5px rgba(51, 51, 51, 0.1);
 	text-align: center;
 }
 #fullscreen {
@@ -53,7 +53,7 @@
 
 	.navbar-minimal.open > .navbar-toggler,
 	.navbar-minimal > .navbar-toggler:hover {
-		background-color: rgb(158, 202, 59);
+		background-color: rgb(51, 51, 51);
 	}
 
 	.navbar-minimal > .navbar-toggler > span {
@@ -86,8 +86,8 @@
 		padding: 0px;
 		list-style: none;
 		z-index: 50;
-		background-color: rgb(51, 51, 51);
-		background-color: rgba(51, 51, 51, 0.8);
+		background-color: rgb(255, 255, 255);
+		background-color: rgba(255, 255, 255, 0.3);
 	}
 	.navbar-minimal > .navbar-menu > li {
 		margin: 0px;
@@ -97,7 +97,7 @@
 	.navbar-minimal > .navbar-menu > li > a {
 		position: relative;
 		display: inline-block;
-		color: rgb(255, 255, 255);
+		color: rgb(3, 3, 3);
 		padding: 20px 23px;
 		text-align: left;
 		cursor: pointer;
@@ -110,7 +110,7 @@
 		border-bottom-width: 0px;
 	}
 	.navbar-minimal > .navbar-menu > li > a:hover {
-		background-color: rgb(158, 202, 59);
+		background-color: rgb(255, 255,255);
 	}
 	.navbar-minimal > .navbar-menu > li > a > .glyphicon {
 		float: right;
@@ -153,8 +153,8 @@
 			white-space: nowrap;
 			padding: 10px 13px;
 			border-width: 0px !important;
-			background-color: rgb(51, 51, 51);
-			background-color: rgba(51, 51, 51, 0.8);
+			background-color: rgb(217, 217, 217);
+			background-color: rgba(255, 255, 255, 0.8);
 			opacity: 0;
 		}
 		.navbar-minimal > .navbar-menu > li > a > .desc:after {
@@ -169,7 +169,7 @@
 			border-top: 10px solid transparent;
 			border-bottom: 10px solid transparent; 	
 			border-right: 10px solid rgb(51, 51, 51);
-			border-right-color: rgba(51, 51, 51, 0.8);
+			border-right-color: rgba(255, 255, 255, 0.8);
 		}
 		.navbar-minimal > .navbar-menu > li > a:hover > .desc {
 			left: 60px;
@@ -182,7 +182,7 @@
    /*Notificaciones*/
    
    
-   .contain {
+/*   .contain {
   width: 500px;
   margin: 0 auto;
   position: relative;
@@ -327,7 +327,7 @@
   top: 30px;
   right: -20px;
 }
-
+*/
    
    
    

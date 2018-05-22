@@ -2,6 +2,7 @@ $(document).ready(function(){
 	var persona;
   getpersona();
   carregarpersona();
+  
 
   $("body").keydown(function(e) {
     if(e.keyCode == 37) {
@@ -19,7 +20,9 @@ $(document).ready(function(){
   $(".botoin").click(inf);
 
   function inf() {
-    console.log(persones[numpersona]);
+   
+$("#a-info").attr("href", "user/info/"+ persona.idPersona);
+
   }
 
   function getpersona() {    
@@ -27,10 +30,9 @@ $(document).ready(function(){
     $.ajax({
       method: "GET",
       dataType: "json",
-      url: "http://172.16.9.24/iungo/iungo-app/public/persona/personajson",
+      url: "persona/personajson",
       success: function( data ) {
           persona = data[0];
-          console.log(persona);
       },
       async: false
       });
@@ -68,7 +70,7 @@ $(document).ready(function(){
   	$.ajax({
       method: "GET",
       dataType: "json",
-      url: "http://172.16.9.24/iungo/iungo-app/public/persona/setvista",
+      url: "persona/setvista",
       data: {'idReceptor' : persona.idPersona},
       async: false
       });
@@ -78,7 +80,7 @@ $(document).ready(function(){
     $.ajax({
       method: "GET",
       dataType: "json",
-      url: "http://172.16.9.24/iungo/iungo-app/public/persona/setmg",
+      url: "persona/setmg",
       data: {'idReceptor' : persona.idPersona},
       async: false
       });

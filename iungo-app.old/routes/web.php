@@ -42,16 +42,19 @@ Route::get('/persona/fotoperfil', 'PersonaController@getFotoPerfil')->name('pers
 Route::get('/persona/getids', 'PersonaController@getIds')->name('persona.getids');
 
 Route::get('/user/perfil', 'PersonaController@show')->name('user.perfil');
-Route::get('/persona/personesjson', 'PersonaController@persones_json')->name('persona.persones_json');
+Route::get('/persona/personajson', 'PersonaController@persona_json')->name('persona.persona_json');
 
 Route::get('/edit/perfil', 'PersonaController@showperfil')->name('edit.perfil');
 Route::post('/perfil/update/{id}', 'PersonaController@updateperfil')->name('perfil.update');
 
 /*ME GUSTA*/
 Route::get('/persona/setmg', 'PersonaController@setMg')->name('persona.setMg');
+Route::get('/persona/setvista', 'PersonaController@setVista')->name('persona.setVista');
 
 /*CHATS*/
 Route::get('/chat', 'MensajesController@mostrarColumnaChats');
 Route::get('/mostrarChat', 'MensajesController@mostrarColumnaChats');
 Route::get('/chatUser/{id}', 'MensajesController@mostrarChatCorrespondiente')->name('user.chat');
 Route::get('/sendChat', 'MensajesController@sendChat')->name('send.chat');
+Route::post('/update/img-perfil/{idPersona}', 'PersonaController@update_img')->name('update.image.perfil');
+Route::post('/update/img-portada/{idPersona}', 'PersonaController@update_portada')->name('update.image.portada');

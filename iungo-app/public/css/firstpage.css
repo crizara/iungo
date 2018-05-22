@@ -1,81 +1,78 @@
-.botonsfoto {
+
+body {
+  background-color: #EF9797;
+}
+.botomg {
+  color: #ef9797;
+}
+.botodis {
+  color: #565353;
+}
+.botomg:hover {
+  cursor: pointer;
+}
+.botodis:hover {
+  cursor: pointer;
+}
+.botoin {
+  color: #77a5d8;
+  font-size: 2em !important;
+}
+.botoin:hover {
+  cursor: pointer;
+}
+.image-window img{
+  object-fit: cover;
+  height: 550px;
+  max-height: 400px;
+  width: 350px;
+  position: relative;
+  border-radius: 5px;
+}
+.fotoperfil {
   text-align: center;
+  background-color: white;
+  min-width: 250px;  
 }
 
-.botomg {
-    color: #ef9797;
-    font-size: 85px;
-    text-align: center;
-  }
-  .botodis {
-    color: #565353;
-    font-size: 85px;
-    text-align: center;
-  }
-  .nompersona {
-    background-color: black;
-color: white;
-opacity: 0.7;
-position: absolute;
-z-index: 10;
-left: 15%;
-width: 70%;
-height: 6%;
-font-size: 20px;
-  }
-  .botomg:hover {
-    cursor: pointer;
-  }
-  .botodis:hover {
-    cursor: pointer;
-  }
+.social {
+ margin: 0 auto;
+ display: table;
+ text-align: center !important;
+}
 
-  .botoin {
-    color: #77a5d8;
-    font-size: 40px;
-    float: center;    
-  }
+.social li {
+  float: left;
+  list-style:none;
 
-  .botoin:hover {
-    cursor: pointer;
-  }
-  .image-window img{
-    z-index: 9;
-    object-fit: cover;
-    height: 500px;
-    width: 100%;
-    position: relative;
-  }
+}
+.social li span {
+  display: block;
+  font-size: 4em;
+  padding: 8px;
 
-  .fotoperfil {
-    text-align: center;
-    margin-top: 4%;
-    background-color: white;
-    padding: 2%;   
-  }
+}
+.centrar  {
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  /*nos posicionamos en el centro del navegador*/
+  top:45%;
+  left:50%;
+  /*determinamos una anchura*/
+  width:400px;
+  /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+  margin-left:-200px;
+  /*determinamos una altura*/
+  height:520px;
+  /*indicamos que el margen superior, es la mitad de la altura*/
+  margin-top:-260px;
+  padding:1.8em;
+}
 
-  .image-window {
-    height: 500px;
-    width: 400px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 10px;
-    width: 100%;
-    transition: height 0.3s ease-in-out;
-  }  
-
-  .row {
-    margin: 0px !important;
-  }
-
-  body {
-    background-color: #ef9797;
-  }
-
-  .botons {
-    background-color: white;
-  }
-  
-  
- 
-
+.image-window img {
+  opacity: 1;
+}
+.image-window:hover img {
+  opacity: .5;
+}

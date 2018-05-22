@@ -1,284 +1,309 @@
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+.message {
+    text-align: center;
+    margin: 15px 0 0;
+    color: white !important;
+    font-size: 15px;
+}
+.message a {
+    color: #758431;
+    
+}
+.texto-derecha{
+    text-align: right !important;
+    font-style: italic;
+  
+}
 
+/* Animación con keyframe llamada "latidos" */
+
+
+body { text-align: center;
+       background: #333; height: 230px;
+}
+
+.centrar {
+
+    padding: 0px !important;
+}
+.texto-centrado{
+    text-align: center !important;
+}
+.centrado{margin-top: 20%; 
+}
 body{
-	margin: 0;
-	padding: 0;
-	background: #fff;
-	color: #fff;
-	font-family: Arial;
-	font-size: 12px;
-  	background-color: #EF9797;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #fff;
+    font-family: Arial;
+    font-size: 12px;
+    background: linear-gradient(to right,#ea8383,#EF9797);
+    background-size: 100% 100%;
 }
 
-.header{
-	position: absolute;
-	top: calc(50% - 35px);
-	left: calc(50% - 255px);
-}
+
+
 .titulo{
-	font-family: 'Exo', sans-serif;
-	font-size: 35px;
+    font-family: 'Exo', sans-serif;
+    font-size: 35px;
+
 
 }
 .titulo-principal{
-	margin-bottom:1em;
+    margin-bottom:1em;
 
 }
-.header div{
-	float: left;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 35px;
-	font-weight: 200;
+.header{
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 50px;
+    font-weight: 200;
+
 }
 .titulo span{
-	color: #5379fa !important;
+    color: #5379fa !important;
 }
 
-
-.header div span{
-	color: #5379fa !important;
+.login a {
+    color: #5379fa !important;
+}
+.header span{
+    color: #5379fa !important;
 }
 
-.login{
-	position: absolute;
-	top: calc(50% - 75px);
-	left: calc(50% - 50px);
-	height: 150px;
-	width: 350px;
-	
-}
 
 .editar-perfil{
-	position: absolute;
-	top: calc(50% - 237px);
-	left: calc(50% - 50px);
-	height: 150px;
-	width: 350px;
-	
+    position: absolute;
+    top: calc(50% - 237px);
+    left: calc(50% - 50px);
+    height: 150px;
+    width: 350px;
+
 }
 
 
 .editar-perfil input[type=text]{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-	text-align: center;
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    text-align: center;
 }
 
 .editar-perfil select{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-	text-align: center;
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    text-align: center;
 }
 .editar-perfil input[type=email]{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-	text-align: center;
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    text-align: center;
 }
 
 .editar-perfil input[type=password]{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-	margin-top: 10px;
-	text-align: center;
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .editar-perfil input[type=submit]{
-	width: 250px;
-	height: 40px;
-	background: #fff;
-	border: 1px solid #fff;
-	cursor: pointer;
-	border-radius: 2px;
-	color: #a18d6c;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	margin-top: 10px;
-	border-radius: 3px;
+    width: 250px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    border-radius: 3px;
 }
 
 .editar-perfil input[type=submit]:hover{
-	opacity: 0.8;
+    opacity: 0.8;
 }
 
 .editar-perfil input[type=submit]:active{
-	opacity: 0.6;
+    opacity: 0.6;
 }
 
 .editar-perfil input[type=email]:focus{
-	outline: none;
-	border: 1px solid rgba(255,255,255,0.9);
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
 }
 .editar-perfil input[type=text]:focus{
-	outline: none;
-	border: 1px solid rgba(255,255,255,0.9);
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
 }
 
 .editar-perfil input[type=password]:focus{
-	border: 1px solid rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.9);
 }
 
 .editar-perfil input[type=submit]:focus{
-	outline: none;
+    outline: none;
 }
 
 
 .login input[type=text]{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-	text-align: center;
+    width: 80%;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    text-align: center;
 }
 
 .login select{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-	text-align: center;
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    text-align: center;
 }
 .login input[type=email]{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-	text-align: center;
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0px !important;
+    padding: 0px !important;
 }
 
 .login input[type=password]{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-	margin-top: 10px;
-	text-align: center;
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .login input[type=submit]{
-	width: 250px;
-	height: 40px;
-	background: #fff;
-	border: 1px solid #fff;
-	cursor: pointer;
-	border-radius: 2px;
-	color: #a18d6c;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	margin-top: 10px;
-	border-radius: 3px;
+    width: 250px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 3px;
+    margin: 0px !important;
+    padding: 0px !important;
 }
 
 .login input[type=submit]:hover{
-	opacity: 0.8;
+    opacity: 0.5;
 }
 
 .login input[type=submit]:active{
-	opacity: 0.6;
+    opacity: 0.5;
 }
 
 .login input[type=email]:focus{
-	outline: none;
-	border: 1px solid rgba(255,255,255,0.9);
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
 }
 .login input[type=text]:focus{
-	outline: none;
-	border: 1px solid rgba(255,255,255,0.9);
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
 }
 
 .login input[type=password]:focus{
-	border: 1px solid rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.9);
 }
 
 .login input[type=submit]:focus{
-	outline: none;
+    outline: none;
 }
 
 ::-webkit-input-placeholder{
-   color: rgba(255,255,255);
+    color: rgba(255,255,255,0.9);
 }
 
 ::-moz-input-placeholder{
-   color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.6);
 }
 .help-block strong {
-color: #d1556a;
+    color: #d1556a;
 
 }
 #email::placeholder {
-  text-align: center;
-  color: white;
+    text-align: center;
+    color: white;
 }
 #password::placeholder {
-  text-align: center;
-color: white;
+    text-align: center;
+    color: white;
 }
 .texto::placeholder {
-  text-align: center;
-	color: white;
+    text-align: center;
+    color: white;
 }
 .principal {
-padding: 120px !important;
-min-width: 500px !important;
+    padding: 120px !important;
+    min-width: 500px !important;
 }
 
 
@@ -289,59 +314,70 @@ min-width: 500px !important;
 @media only screen and (max-width:480px) { 
     /* Smartphone view: 1 tile */
     .editar-perfil{
-    	left: calc(50% - 143px);
-    	top: calc(50% - 237px);
+        left: calc(50% - 143px);
+        top: calc(50% - 237px);
     }
 }
 @media only screen and (max-width:650px) and (min-width:481px) { 
     /* Tablet view: 2 tiles */
-   .editar-perfil{
-    	left: calc(50% - 185px);
-    	top: calc(50% - 237px);
+    .editar-perfil{
+        left: calc(50% - 185px);
+        top: calc(50% - 237px);
     }
 }
 @media only screen and (max-width:1050px) and (min-width:651px) { 
     /* Small desktop / ipad view: 3 tiles */
-   .editar-perfil{
-    	left: calc(50% - 185px);
-    	top: calc(50% - 237px);
+    .editar-perfil{
+        left: calc(50% - 185px);
+        top: calc(50% - 237px);
     }
 }
 @media only screen and (max-width:2500px) and (min-width:1051px) { 
     /* Medium desktop: 4 tiles */
-   .editar-perfil{
-    	left: calc(50% - 185px);
-    	top: calc(50% - 237px);
+    .editar-perfil{
+        left: calc(50% - 185px);
+        top: calc(50% - 237px);
     }
 }
 
 .cancelar{
-	width: 250px !important;
-	height: 40px !important;
-	background: #fff;
-	border: 1px solid #fff;
-	cursor: pointer;
-	border-radius: 2px;
-	color: #a18d6c;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	margin-top: 10px;
-	border-radius: 3px;
-	text-decoration: none !important;
+    width: 250px !important;
+    height: 40px !important;
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    border-radius: 3px;
+    text-decoration: none !important;
 
 }
 
 .cancelar button:hover{
-	opacity: 0.8 !important;
-	color: #333;
-	border-color: #888;
-	outline: 0;
+    opacity: 0.8 !important;
+    color: #333;
+    border-color: #888;
+    outline: 0;
 }
 
 .cancelar button:active{
-	opacity: 0.6;
+    opacity: 0.6;
 }
 .cancelar button:focus{
-	outline: none;
+    outline: none;
+}
+
+.div-body{
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  position: fixed;
+  top:0;
+  left:0; 
+  background-position: center center;
+  background-size: cover !important;
 }

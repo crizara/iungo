@@ -8,74 +8,69 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Iungo') }}</title>
     <!-- Styles -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"  crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>  
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">       
 </head>
-<body>
-    <div class="principal">
+<body>  
+    <div class="container centrado">
+        <div class="row">
 
-      <div class="header">
-        <div>
-       <img src="https://images.vexels.com/media/users/3/138854/isolated/preview/9a37016e6bfa621501edd29d47229daa-pareja-caminar-en-la-playa-silueta-by-vexels.png" style="width: 10%; height: 10%;">
-        Iun<span>go</span>
-        </div>
-    </div>
-    <div class="login">
-        <form  method="POST" action="{{ route('login') }}">
-            {{ csrf_field() }}
-            <input id="email" placeholder="email" type="email"  name="email" value="{{ old('email') }}" required autofocus align="center">
-            @if ($errors->has('email'))
-            <span class="help-block">
-                <strong>{{ $errors->first('email') }}</strong>
-            </span>
-            @endif
-
-            <input id="password" type="password" placeholder="password" name="password" required autofocus>
-
-            @if ($errors->has('password'))
-            <span class="help-block">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-            @endif
-
-            <input type="submit" value="Conectate">
-            <span class="help-block">
-            <a href="{{ url('/register') }}" data-page=.page.about>Aun no estras registrado? Registrate</a>
-            </span>
-
-
-                     <!--   <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recuerdame
-                                    </label>
-                                </div>
-                            </div>
-                        </div>-->
-
-                     <!--   <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Olvidaste la contraseña?
-                                </a>
-                            </div>
-                        </div>-->
-                    </form>
-
+            <div class="col col-xs-6">
+                <div class="header texto-centrado">
+                    <img src="https://images.vexels.com/media/users/3/138854/isolated/preview/9a37016e6bfa621501edd29d47229daa-pareja-caminar-en-la-playa-silueta-by-vexels.png" style="width: 10%; min-width: 50px; ">
+                    Iun<span>go</span>
                 </div>
-
-
             </div>
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-        </body>
-        </html>
+            <div class="col col-xs-6 login texto-centrado ">
+                <form  method="POST" action="{{ route('login') }}">
+                 {{ csrf_field() }}
 
-        
+                 <div class="row">
+                        <label class=" col-sm-1" for="nombre" style="text-align: left;"><i class="icon-color fa fa-envelope"  aria-hidden="true"></i>
+                        </label>
+                        <div class="col-sm-10">
+                          <input id="email" placeholder="email" type="email"  name="email" required autofocus >
+                        </div>
+                        <div class="col-sm-2"></div>
+                </div>
+                 @if ($errors->has('email'))
+                 <span class="help-block">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+                @endif
+                <div class="row" >
+                        <label class=" col-sm-1" for="nombre" style="text-align: left;"><i class="icon-color fa fa-key" aria-hidden="true"></i>
+                        </label>
+                        <div class="col-sm-10">
+                          <input id="password" type="password" placeholder="password" name="password" required autofocus>
+                        </div>
+                        <div class="col-sm-2"></div>
+                </div>              
+                @if ($errors->has('password'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+                @endif
+                <div class="row">
+                       <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                          <input type="submit" value="Conectate">
+                        </div>
+                        <div class="col-sm-2"></div>
+                </div> 
+                
+            </form>
+
+            <p class="message">¿No estás registrado? <a href="{{ url('/register') }}">Crear una cuenta</a></p>
+        </div>
+
+    </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+</body>
+</html>
+

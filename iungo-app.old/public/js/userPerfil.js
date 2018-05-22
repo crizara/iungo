@@ -15,7 +15,6 @@ var PictureUpdate = /** @class */ (function () {
     };
     PictureUpdate.prototype.updateCover = function () {
         var _this = this;
-        alert(_this);
         var input = $('input', this.cover);
         input.change(function (e) {
             var img = URL.createObjectURL(e.target.files[0]);

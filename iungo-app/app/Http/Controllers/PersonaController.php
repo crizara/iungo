@@ -259,6 +259,61 @@ return redirect('/user/perfil');
 
 
 
+public function info($idPersona){
+
+        $user = DB::table('persona')->where('idPersona', $idPersona)->first();
+        $user = get_object_vars($user);
+        $fotoperfil = DB::table('Galeria')->where('idPersona', $user["idPersona"])->where('perfil', '1')->first();
+
+        $fotoportada=DB::table('Galeria')->where('idPersona', $user["idPersona"])->where('perfil', '2')->first();
+
+        $galeria=DB::table('Galeria')->where('idPersona', $user["idPersona"])->where('perfil', '0')->get();
+
+        if (sizeof($fotoperfil) == 0) {
+            $fotoperfil = 'res.jpg';
+        } else {
+            $fotoperfil = $fotoperfil->img;
+           
+        }
+
+        if (sizeof($fotoportada) == 0) {
+            $fotoportada = 'res.jpg';
+        } else {
+            $fotoportada = $fotoportada->img;
+        }
+
+        if (sizeof($user) > 0) {
+            return view('userInfo', ['user' => $user, 'fotoperfil' => $fotoperfil, 'fotoportada' =>$fotoportada, 'galeria' => $galeria]);
+        } else {
+            return 'error no té persona';
+        }
+
+
+
+}
+public function iungos() {
+     $id = Auth::id();
+        $user = DB::table('users')->select('persona.*')->join('persona', 'users.id', '=', 'persona.idUser')->where('users.id', $id)->first();
+
+        $match = DB::select('SELECT persona.Nom, max(`MeGusta`.`dia`) as data FROM `MeGusta` INNER JOIN persona on MeGusta.idEnviador = persona.idPersona WHERE idReceptor = ? and idEnviador in (SELECT idReceptor from MeGusta where idEnviador = ?) group by `persona`.`nom` ORDER BY data DESC ',[$user->idPersona, $user->idPersona]);        
+       
+        return view('iungos',['match' => $match]);
+    }
+
+//WEB SERVICE
+
+public function getpersones() {
+    $persones = DB::table('persona')->get();
+
+    return json_encode($persones);
+}
+
+public function getpersona($id) {
+    $persona = DB::table('persona')->where('idPersona', $id)->first();
+
+    return json_encode($persona);
+}
+
 
 
 }

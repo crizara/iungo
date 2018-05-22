@@ -56,7 +56,6 @@ foreach ($chats as $missatge) {
 
 
 public function sendChat(Request $request){
-
 	$id = Auth::id();
     $user = DB::table('users')->join('persona', 'users.id', '=', 'persona.idUser')->where('users.id', $id)->get();
 
@@ -71,6 +70,45 @@ DB::table('Missatges')->insert(
 
 }
 
+public function userGaleria($idPersona){
+        $user = DB::table('persona')->where('idPersona', $idPersona)->first();
+        $user = get_object_vars($user);
+        $fotosgaleria=DB::table('Galeria')->where('idPersona', $user["idPersona"])->where('perfil', '0')->get();
+        if (sizeof($fotosgaleria) > 0) {
+          $mensaje="";
+            return view('galeria', ['user' => $user, 'fotosgaleria' => $fotosgaleria,'mensaje' => $mensaje]);
+        }
+        else {
+        $mensaje="No tienes ninguna foto en tu galeria.";
+        return view('galeria', ['user' => $user, 'fotosgaleria' => $fotosgaleria,'mensaje' => $mensaje]);
+
+        }   
+}
+
+public function insertGaleria($idPersona){
+$file_name = $_FILES['file']['name'];
+    $file_type = $_FILES['file']['type'];
+    $file_size = $_FILES['file']['size'];
+    $file_tem_Loc = $_FILES['file']['tmp_name'];    
+    if($file_name==""){
+        return redirect('/user/galeria/'.$idPersona);
+
+}else {
+    $file_store = public_path()."/images/". $file_name;
+    move_uploaded_file($file_tem_Loc, $file_store);
+     DB::table('Galeria')->insert(
+        ['idPersona' => $idPersona, 'img' => $file_name, 'ordre' => '0', 'perfil' =>'0' ]
+        );
+}
+return redirect('/user/galeria/'.$idPersona);
+}
+
+
+public function deleteGaleria($idGaleria, $idPersona){
+
+DB::table('Galeria')->where('idGaleria', $idGaleria)->delete();
+return redirect('/user/galeria/'.$idPersona);
+}
 
 
 

@@ -26,9 +26,26 @@ class PersonaController extends Controller {
         echo json_encode($fotoperfil[0]);
     }
 
-    public function persones_json() {
-        $fotoperfil = DB::table('persona')->get();
-        echo json_encode($fotoperfil);
+    public function persona_json() {
+        $id = Auth::id();
+        $persona = DB::table('users')->select('persona.*')->join('persona', 'users.id', '=', 'persona.idUser')->where('users.id', $id)->get()[0];
+
+        $seguir = false;
+
+        while($seguir == false) {
+            $aBuscar = DB::select('SELECT * FROM `persona` INNER JOIN Galeria on persona.idPersona = Galeria.idPersona WHERE persona.idPersona != ? and idSexe = ? and idbusca = ? and persona.idPersona not in (SELECT vistas.idReceptor from vistas where vistas.idEnviador = ?) ORDER by persona.idPersona LIMIT 1', [$persona->idPersona, $persona->idbusca, $persona->idSexe, $persona->idPersona]);
+            if (sizeof($aBuscar) == 0) {
+                $this->reiniciarVistes($persona->idPersona);
+                $seguir = false;
+            } else {
+                $seguir = true;
+            }
+        }        
+        echo json_encode($aBuscar);
+    }
+
+    public function reiniciarVistes($id) {
+        DB::table('vistas')->where('idEnviador', '=', $id)->delete();
     }
 
     public function getIds() {
@@ -43,13 +60,27 @@ class PersonaController extends Controller {
 
     public function show() {
         $id = Auth::id();
-        $user = DB::table('users')->join('persona', 'users.id', '=', 'persona.idUser')->join('Galeria', 'persona.idPersona', '=', 'Galeria.idPersona')->where('users.id', $id)->get();
-        $user = $user->toArray();
-        for ($i = 0; $i < sizeof($user); $i++) {
-            $user[$i] = get_object_vars($user[$i]);
+        $user = DB::table('users')->join('persona', 'users.id', '=', 'persona.idUser')->where('users.id', $id)->first();
+
+        $user = get_object_vars($user);
+
+        $fotoperfil = DB::table('Galeria')->where('idPersona', $user["idPersona"])->where('perfil', '1')->first();
+        $fotoportada=DB::table('Galeria')->where('idPersona', $user["idPersona"])->where('perfil', '2')->first();
+
+        if (sizeof($fotoperfil) == 0) {
+            $fotoperfil = 'res.jpg';
+        } else {
+            $fotoperfil = $fotoperfil->img;
         }
+
+        if (sizeof($fotoportada) == 0) {
+            $fotoportada = 'res.jpg';
+        } else {
+            $fotoportada = $fotoportada->img;
+        }
+
         if (sizeof($user) > 0) {
-            return view('userPerfil', ['user' => $user[0]]);
+            return view('userPerfil', ['user' => $user, 'fotoperfil' => $fotoperfil, 'fotoportada' =>$fotoportada]);
         } else {
             return 'error no té persona';
         }
@@ -62,7 +93,18 @@ class PersonaController extends Controller {
         $id = Auth::id();
         $user = DB::table('users')->join('persona', 'users.id', '=', 'persona.idUser')->where('users.id', $id)->get();
         DB::table('MeGusta')->insert(
-                ['idEnviador'=>$user[0]->idPersona,'idReceptor'=>$receptor,'dia'=> date("Y-m-d")]
+                ['idEnviador'=>$user[0]->idPersona,'idReceptor'=>$receptor]
+        );
+    }
+
+    public function setVista(Request $request){
+        
+        $receptor = $request->input('idReceptor');
+        
+        $id = Auth::id();
+        $user = DB::table('users')->join('persona', 'users.id', '=', 'persona.idUser')->where('users.id', $id)->get();
+        DB::table('vistas')->insert(
+                ['idEnviador'=>$user[0]->idPersona,'idReceptor'=>$receptor]
         );
     }
 
@@ -153,5 +195,70 @@ class PersonaController extends Controller {
 
         return view('userList', ['user' => $user]);
     }
+public function update_img($idPersona){
+    $file_name = $_FILES['file']['name'];
+    $file_type = $_FILES['file']['type'];
+    $file_size = $_FILES['file']['size'];
+    $file_tem_Loc = $_FILES['file']['tmp_name'];    
+if($file_name==""){
+    return redirect('/user/perfil');
+/*$imagen = DB::table('Galeria')->select('Galeria.img')->where('idPersona', $idPersona)->get();
+    dd($imagen);*/
+}else {
+$file_store = public_path()."/images/". $file_name;
+    move_uploaded_file($file_tem_Loc, $file_store);
+    $existePortada=false;
+    $fotoportada=DB::table('Galeria')->where('idPersona', $idPersona)->where('perfil', '1')->first();
+    if($fotoportada==null) {
+     DB::table('Galeria')->insert(
+        ['idPersona' => $idPersona, 'img' => $file_name, 'ordre' => '0', 'perfil' =>'1' ]
+        );
+ }
+ else {
+  DB::table('Galeria')
+  ->where('idPersona', $idPersona)->where('perfil', "1")
+  ->update(
+    ['img' => $file_name]
+    );
+}
+
+}
+
+return redirect('/user/perfil');
+}
+
+public function update_portada($idPersona){
+    $file_name = $_FILES['file']['name'];
+    $file_type = $_FILES['file']['type'];
+    $file_size = $_FILES['file']['size'];
+    $file_tem_Loc = $_FILES['file']['tmp_name'];    
+    if($file_name==""){
+        return redirect('/user/perfil');
+/*$imagen = DB::table('Galeria')->select('Galeria.img')->where('idPersona', $idPersona)->get();
+dd($imagen);*/
+}else {
+    $file_store = public_path()."/images/". $file_name;
+    move_uploaded_file($file_tem_Loc, $file_store);
+    $existePortada=false;
+    $fotoportada=DB::table('Galeria')->where('idPersona', $idPersona)->where('perfil', '2')->first();
+    if($fotoportada==null) {
+     DB::table('Galeria')->insert(
+        ['idPersona' => $idPersona, 'img' => $file_name, 'ordre' => '0', 'perfil' =>'2' ]
+        );
+ }
+ else {
+  DB::table('Galeria')
+  ->where('idPersona', $idPersona)->where('perfil', "2")
+  ->update(
+    ['img' => $file_name]
+    );
+}
+}
+return redirect('/user/perfil');
+}
+
+
+
+
 
 }

@@ -1,7 +1,7 @@
-var PictureUpdate = /** @class */ (function () {
+var PictureUpdate =  (function () {
     function PictureUpdate() {
-        this.profile = $('.profile-pic'); //direct parent
-        this.cover = $('.cover'); //direct parent
+        this.profile = $('.profile-pic');
+        this.cover = $('.cover');
         this.updateProfile();
         this.updateCover();
     }
@@ -27,7 +27,7 @@ var PictureUpdate = /** @class */ (function () {
         $.ajax({
             type: "POST",
             data: data,
-            url:"http://172.16.9.24/iungo/iungo-app/public/update/img-perfil",
+            url:"update/img-perfil",
             async: false,
             beforeSend: function () {
                 _this.startLoader(element);

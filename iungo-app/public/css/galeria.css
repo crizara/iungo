@@ -1,0 +1,232 @@
+/*
+
+All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 77). 
+        
+The 'supports' rule will only run if your browser supports CSS grid.
+
+Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
+
+*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre|Lobster');
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+
+
+:root {
+  
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.borde-discontinuo{
+  border: 2px;
+  border-color: #969696;
+  border-style: dashed !important;
+
+}
+body {
+  min-height: 100vh;
+  background:#EF9797;
+}
+
+.container {
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+.contenedor{
+  line-height:250px;
+  text-align:center;
+  border-style: dashed !important;
+  border: 2px solid;
+  border-color: #a5a5a5;
+  border-radius: 3px;
+
+}
+.contenido {
+  width: 100%; background-color: white;display:inline-block;
+  vertical-align:middle;line-height:normal;
+
+
+}
+.click-aqui{
+color: #5379fa !important;
+font-size: 15px;
+}
+
+
+
+.heading {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  padding: 3.5rem 0;
+  color: #1a1a1a;
+}
+
+.heading span {
+  display: block;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1rem -1rem;
+}
+
+.gallery-item {
+  height: 250px;
+ 
+  flex: 1 0 24rem;
+
+  margin: 1rem;
+ 
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease-out;
+}
+
+
+
+
+
+
+
+
+
+@supports (display: grid) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    grid-gap: 2rem;
+  }
+
+  .gallery,
+  .gallery-item {
+    margin: 0;
+  }
+}
+
+/*#5979F5*/
+.btn-cancelar{
+  border: none !important;
+  letter-spacing: 0px;
+  height: 37px;
+  width: 150px !important;
+background-color: #afacac;
+color: white !important;
+
+}
+
+.btn-cancelar:hover{
+background-color: #9b9898;
+
+}
+
+.btn-iungo{
+  border: none !important;
+  letter-spacing: 0px;
+  height: 37px;
+  width: 150px !important;
+background-color: #ec9898;
+color: white !important;
+}
+.btn-iungo2{
+  height: 37px;
+  width: 150px;
+background-color: #5979F5;
+color: white !important;
+}
+.btn-iungo2:hover{
+background-color: #5370db;
+
+}
+.btn-iungo:hover{
+background-color: #d68282;
+
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    width: 150px !important;
+}
+.btn-file input[type=file] {
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.margin{
+  margin-top: 5px;
+}
+.imagen-modal{
+  height: 300px !important;
+  width: 97%
+}
+
+@media only screen and (max-width:763px) { 
+    /* Smartphone view: 1 tile */
+    .separar{
+        margin-top: 0.5em;
+    }
+}
+
+.titulo-modal{
+  margin-top: : 15px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color:#637fe2;
+ font-family: 'Frank Ruhl Libre', serif;
+  
+}
+
+
+@media only screen and (max-width:400px) { 
+    /* Smartphone view: 1 tile */
+    .imagen-modal{
+  height: 150px !important;
+  width: 90%
+}
+
+}
+
+
+ .span-galery
+{
+ visibility: hidden;
+ position:absolute;
+ top:40px;
+ left:30px;
+}
+.span-galery:hover 
+{
+ visibility: visible;
+}

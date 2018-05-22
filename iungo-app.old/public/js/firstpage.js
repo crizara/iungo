@@ -1,9 +1,7 @@
 $(document).ready(function(){
-  var numpersona = 0;
-  var persones = new Array();
-  getpersones();
+	var persona;
+  getpersona();
   carregarpersona();
-  console.log(persones);
 
   $("body").keydown(function(e) {
     if(e.keyCode == 37) {
@@ -24,16 +22,15 @@ $(document).ready(function(){
     console.log(persones[numpersona]);
   }
 
-  function getpersones() {    
+  function getpersona() {    
 
     $.ajax({
       method: "GET",
       dataType: "json",
-      url: "http://172.16.9.24/iungo/iungo-app/public/persona/personesjson",
+      url: "http://172.16.9.24/iungo/iungo-app/public/persona/personajson",
       success: function( data ) {
-        $.each( data, function( key, val ) {
-          persones[key] = val;      
-        });
+          persona = data[0];
+          console.log(persona);
       },
       async: false
       });
@@ -51,30 +48,30 @@ $(document).ready(function(){
       $(".fotoperfil img").animate({ "left": "+=600%" }, 0 );
     }
 
-    $.ajax({
-      method: "GET",
-      dataType: "json",
-      url: "http://172.16.9.24/iungo/iungo-app/public/persona/fotoperfil",
-      data: {'idpersona' : persones[numpersona].idPersona},
-      success: function( data ) {
-          $(".fotoperfil img").attr("src", "./images/" + data.img);
-       },
-      async: false
-      });
-    
-    numpersona++;
-    if (numpersona == persones.length) {
-      numpersona = 0;
-    }    
+    $(".fotoperfil img").attr("src", "./images/" + persona.img);   
   }
 
   function cor() {
+  	setvista();
     setmg();
+    getpersona();
     carregarpersona("cor");    
   }
 
   function dis() {
-    carregarimg("dis");   
+  	setvista();
+  	getpersona();
+    carregarpersona("dis");   
+  }
+
+  function setvista() {
+  	$.ajax({
+      method: "GET",
+      dataType: "json",
+      url: "http://172.16.9.24/iungo/iungo-app/public/persona/setvista",
+      data: {'idReceptor' : persona.idPersona},
+      async: false
+      });
   }
 
   function setmg() {
@@ -82,7 +79,7 @@ $(document).ready(function(){
       method: "GET",
       dataType: "json",
       url: "http://172.16.9.24/iungo/iungo-app/public/persona/setmg",
-      data: {'idReceptor' : persones[numpersona-1].idPersona},
+      data: {'idReceptor' : persona.idPersona},
       async: false
       });
   }

@@ -17,6 +17,10 @@ body {
     border-radius: 5px;
 }
 
+li {
+    list-style: none;
+}
+
 .image-chat img{
     z-index: 9;
     object-fit: cover;
